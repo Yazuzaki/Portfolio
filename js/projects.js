@@ -1,95 +1,92 @@
 /* ============================================================
    Case study data + overlay
-   Each project card on the page opens a full case study in an
-   accessible dialog. Deep-linkable via #case/<slug>.
+   Each card opens a full case study in an accessible dialog.
+   Deep-linkable via #case/<slug>. Content reflects real roles
+   and responsibilities — scope facts, not invented metrics.
    ============================================================ */
 (function () {
   "use strict";
 
   const PROJECTS = {
-    lumina: {
-      title: "Lumina Analytics",
-      tagline: "From data noise to decision clarity",
-      role: "Lead Product Designer & Engineer",
-      year: "2025",
-      client: "Meridian Labs",
-      duration: "9 months",
+    m365: {
+      title: "Microsoft 365 at Scale",
+      role: "IT Officer",
+      org: "Esquire Tech Corp",
+      period: "Mar 2026 — Present",
+      focus: "Identity, email & licensing",
       overview:
-        "Lumina is a B2B analytics platform used by 12,000+ teams. The product was powerful but overwhelming — dashboards averaged 30+ widgets, and new users churned before reaching their first insight. I led a ground-up redesign of the information architecture, visual system, and onboarding flow, then built the new front-end alongside the platform team.",
+        "At Esquire Tech Corp I administer the Microsoft 365 environment that 100+ users across multiple business locations depend on every day. That covers the full account lifecycle — provisioning new users, assigning the right licenses, configuring mailboxes in Exchange Online, and troubleshooting everything from Outlook connectivity to sign-in and access issues.",
       challenge:
-        "Power users loved the density; new users drowned in it. We had to simplify the first-run experience without dumbing down the tool — and ship incrementally against a live product with zero downtime.",
+        "In a multi-location business, email and identity are the backbone of daily operations. A provisioning mistake locks someone out on their first day; a mailbox issue can stall an entire department. The job is to make sure that never becomes the story — accounts ready before they're needed, issues resolved before they spread.",
       solution:
-        "We introduced a progressive-disclosure dashboard model: an opinionated “insights feed” for newcomers that gradually unlocks the full canvas as usage matures. I designed the system in Figma, built the component library in React + TypeScript, and rebuilt the charting layer on D3 with a custom theming engine so every visualization inherited the new design language automatically.",
+        "I keep provisioning, licensing, and mailbox management consistent and documented: standard setup procedures for new hires, license assignments matched to actual needs to avoid waste, and a troubleshooting-first mindset that traces problems to root cause instead of patching symptoms. Alongside Microsoft 365, I support Google Workspace administration and email migration activities, so the business isn't locked to a single platform's way of working.",
       results: [
-        { value: "+38%", label: "activation rate (first insight in <10 min)" },
-        { value: "−41%", label: "time-to-first-dashboard" },
-        { value: "62 → 90", label: "SUS usability score" },
+        { value: "100+", label: "user accounts and mailboxes administered" },
+        { value: "Multi-site", label: "locations supported from one admin seat" },
+        { value: "2 platforms", label: "Microsoft 365 and Google Workspace" },
       ],
-      stack: ["React", "TypeScript", "D3.js", "Storybook", "Figma", "Framer Motion"],
+      stack: ["Microsoft 365 Admin", "Exchange Online", "Outlook", "Google Workspace", "Email migration"],
     },
-    atlas: {
-      title: "Atlas Commerce",
-      tagline: "A storefront rebuilt for speed",
-      role: "Product Designer → Design Engineer",
-      year: "2024",
-      client: "Atlas Commerce",
-      duration: "6 months",
+    domains: {
+      title: "Email Security & Domains",
+      role: "IT Officer",
+      org: "Esquire Tech Corp",
+      period: "Mar 2026 — Present",
+      focus: "DNS, authentication & certificates",
       overview:
-        "Atlas serves 400+ merchants on a headless commerce platform. Their flagship storefront theme was visually dated and slow — a 6.2s mobile LCP was quietly killing conversion. I redesigned the storefront and checkout, then rebuilt it as a statically-rendered Next.js app on the platform’s APIs.",
+        "I own the company's domain infrastructure end to end: DNS and MX records that route mail and services, the SPF, DKIM, and DMARC records that keep our email trusted and out of spam folders, SSL certificates that keep sites and services secure, and the renewal calendar that makes sure none of it silently expires.",
       challenge:
-        "Every design decision carried a performance budget. The brief was explicit: nothing ships that pushes Largest Contentful Paint past 1 second on a mid-range Android device — including imagery, fonts, and motion.",
+        "Domain and DNS work is invisible when it's done right and catastrophic when it isn't — a wrong MX record stops all inbound mail, a lapsed SSL certificate breaks customer trust overnight, and missing email authentication gets a whole domain flagged as spam. There are no small mistakes at this layer.",
       solution:
-        "We designed mobile-first around a strict performance budget: system-font first paint, aggressive image pipelines, and a single-page checkout that collapses five steps into one adaptive form. Motion was implemented entirely with CSS transforms and the View Transitions API, so the experience feels rich at effectively zero JavaScript cost.",
+        "I treat DNS changes like production deployments: verify current records before touching anything, make one change at a time, and confirm propagation and mail flow afterward. SPF, DKIM, and DMARC are configured and checked so legitimate mail authenticates and spoofing attempts fail. Certificates and domain registrations are tracked ahead of their renewal dates — expiry surprises are a process failure, and the process is built so they don't happen.",
       results: [
-        { value: "2.1×", label: "checkout conversion rate" },
-        { value: "0.8s", label: "mobile LCP (was 6.2s)" },
-        { value: "98", label: "Lighthouse performance score" },
+        { value: "SPF·DKIM·DMARC", label: "email authentication maintained" },
+        { value: "DNS + MX", label: "records for business domains and mail flow" },
+        { value: "SSL", label: "certificate lifecycle and domain renewals" },
       ],
-      stack: ["Next.js", "Shopify Hydrogen", "Tailwind CSS", "Vercel", "Sanity"],
+      stack: ["DNS management", "MX records", "SPF / DKIM / DMARC", "SSL certificates", "Domain administration"],
     },
-    pulse: {
-      title: "Pulse Health",
-      tagline: "Health data that feels human",
-      role: "Product Designer & Motion Lead",
-      year: "2024",
-      client: "Pulse (seed-stage startup)",
-      duration: "7 months",
+    pos: {
+      title: "POS & Retail IT Support",
+      role: "Technical Support Engineer → IT Officer",
+      org: "APSoft · Esquire Tech Corp",
+      period: "Dec 2024 — Present",
+      focus: "Revenue-critical systems",
       overview:
-        "Pulse turns wearable data into a daily wellness companion. The founding team had the science; they needed a product people would actually open every morning. I owned design end-to-end — brand, app UI, and the motion system — and worked in-repo with the two founding engineers.",
+        "Since late 2024 I've supported the systems businesses use to take money: POS terminals, receipt printers, barcode scanners, and the back-office software behind them. At APSoft I delivered onsite and remote support to business clients; at Esquire Tech Corp I continue supporting POS deployment and maintenance across our own locations.",
       challenge:
-        "Health apps live or die on retention. Raw biometrics feel clinical and judgmental; we needed the app to read like a supportive coach, not a lab report — while staying honest about the data.",
+        "When a POS terminal goes down, the business stops selling — every minute is measured in lost transactions and frustrated customers. Support has to be fast, but more importantly the failures have to stop happening in the first place.",
       solution:
-        "We built the experience around a single adaptive “readiness ring” with plain-language coaching, and used Rive to give every metric a living, breathing quality — animations respond to your actual data. Onboarding asks one question per screen and produces a personalized plan in under a minute.",
+        "Two habits define how I handle POS environments. First, disciplined installs: terminals, printers, and scanners configured and tested properly the first time, with the OS and applications deployed to a known-good baseline. Second, preventive maintenance: regular diagnostics, component replacement before failure, and cleanup that catches problems while they're still cheap. When something does break, I've done enough hardware diagnostics and system reconfiguration to restore service quickly — onsite or remote.",
       results: [
-        { value: "120k", label: "downloads in first 6 months" },
-        { value: "4.8★", label: "App Store rating (3.1k reviews)" },
-        { value: "58%", label: "day-30 retention (industry avg ≈ 27%)" },
+        { value: "Onsite + remote", label: "support model across client sites" },
+        { value: "End-to-end", label: "deploy, diagnose, repair, maintain" },
+        { value: "Documented", label: "procedures and service records kept" },
       ],
-      stack: ["React Native", "Swift", "Rive", "Firebase", "Figma"],
+      stack: ["POS terminals", "Receipt printers", "Barcode scanners", "Windows", "Hardware diagnostics"],
     },
-    nova: {
-      title: "Nova Studio",
-      tagline: "Brand, type, and code as one system",
-      role: "Senior Creative Developer",
-      year: "2023",
-      client: "Studio Nova",
-      duration: "4 months",
+    vendors: {
+      title: "Vendor & ISP Coordination",
+      role: "IT Officer",
+      org: "Esquire Tech Corp",
+      period: "Mar 2026 — Present",
+      focus: "Connectivity & escalations",
       overview:
-        "Studio Nova — a motion design studio — needed a site that proved its craft the moment it loaded. Working with their creative director, I built an identity system and a WebGL-driven site where the brand’s custom typeface literally bends light: every page is rendered through a real-time refraction shader.",
+        "Multi-site businesses live on their internet connections, and those connections come from vendors. I'm the single point of contact between the company and five telecommunications providers — PLDT, Smart Enterprise, Converge, Globe, and SKY — handling service requests, outage escalations, and account management across all our locations.",
       challenge:
-        "Show-off WebGL sites are usually slow, inaccessible, and unusable on mobile. The bar was: full 60fps on a three-year-old phone, complete keyboard navigation, and a no-WebGL fallback that still feels designed.",
+        "Vendor support queues don't care that your branch is offline. Getting an ISP to move requires knowing exactly what to report, who to escalate to, and how to keep pressure on a ticket without burning the relationship — while keeping the affected site informed and working on whatever fallback exists.",
       solution:
-        "The scene budget was ruthless — one shader, one mesh, instanced particles. All content lives in semantic HTML that the WebGL layer samples for positioning, so screen readers and search engines see a normal site. A static-gradient fallback ships in the same bundle and activates automatically below a GPU capability threshold.",
+        "I keep account details, circuit information, and escalation paths documented for every provider, so an outage report is specific and actionable from the first call. Escalations get tracked to resolution, not just reported. And because I also maintain the internal network — routers, switches, LAN/WAN configuration — I can tell the difference between a provider problem and an internal one before wasting anyone's time.",
       results: [
-        { value: "SOTD", label: "Awwwards Site of the Day + Developer Award" },
-        { value: "60fps", label: "sustained on 2020 mid-range devices" },
-        { value: "+340%", label: "inbound project inquiries for the studio" },
+        { value: "5 providers", label: "PLDT, Smart, Converge, Globe, SKY" },
+        { value: "Multi-site", label: "connectivity across business locations" },
+        { value: "First call", label: "to resolution — owned end to end" },
       ],
-      stack: ["Three.js", "GLSL", "GSAP", "Astro", "Blender"],
+      stack: ["Vendor management", "Escalation handling", "LAN / WAN", "Router & switch config", "Network troubleshooting"],
     },
   };
 
-  const ORDER = ["lumina", "atlas", "pulse", "nova"];
+  const ORDER = ["m365", "domains", "pos", "vendors"];
 
   const overlay = document.getElementById("case-study");
   const panel = overlay ? overlay.querySelector(".case-study__panel") : null;
@@ -117,30 +114,30 @@
       <div class="cs__body">
         <dl class="cs__meta">
           <div><dt>Role</dt><dd>${esc(p.role)}</dd></div>
-          <div><dt>Client</dt><dd>${esc(p.client)}</dd></div>
-          <div><dt>Year</dt><dd>${esc(p.year)}</dd></div>
-          <div><dt>Duration</dt><dd>${esc(p.duration)}</dd></div>
+          <div><dt>Organization</dt><dd>${esc(p.org)}</dd></div>
+          <div><dt>Period</dt><dd>${esc(p.period)}</dd></div>
+          <div><dt>Focus</dt><dd>${esc(p.focus)}</dd></div>
         </dl>
         <div class="cs__section">
           <h3>Overview</h3>
           <p>${esc(p.overview)}</p>
         </div>
         <div class="cs__section">
-          <h3>The challenge</h3>
+          <h3>Why it matters</h3>
           <p>${esc(p.challenge)}</p>
         </div>
         <div class="cs__section">
-          <h3>The solution</h3>
+          <h3>How I handle it</h3>
           <p>${esc(p.solution)}</p>
         </div>
         <div class="cs__section">
-          <h3>Results</h3>
+          <h3>Scope</h3>
           <div class="cs__results">
             ${p.results.map((r) => `<div class="cs__result"><strong>${esc(r.value)}</strong><span>${esc(r.label)}</span></div>`).join("")}
           </div>
         </div>
         <div class="cs__section">
-          <h3>Stack</h3>
+          <h3>Tools &amp; environment</h3>
           <ul class="chips cs__stack">${p.stack.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>
         </div>
         <nav class="cs__nav" aria-label="Case study navigation">

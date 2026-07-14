@@ -1,6 +1,6 @@
 /* ============================================================
    Site interactions: reveal-on-scroll, nav state, card tilt,
-   stat counters, testimonial slider, cursor glow, contact form.
+   stat counters, cursor glow, contact form.
    All motion respects prefers-reduced-motion.
    ============================================================ */
 (function () {
@@ -167,44 +167,6 @@
     }
   }
 
-  /* ---------- Testimonial slider ---------- */
-  const slider = document.querySelector(".slider");
-  if (slider) {
-    const slides = Array.from(slider.querySelectorAll(".slide"));
-    const dotsWrap = slider.querySelector(".slider__dots");
-    let index = 0;
-    let timer = null;
-
-    slides.forEach((_, i) => {
-      const dot = document.createElement("button");
-      dot.className = "slider__dot" + (i === 0 ? " is-active" : "");
-      dot.setAttribute("role", "tab");
-      dot.setAttribute("aria-label", "Testimonial " + (i + 1));
-      dot.addEventListener("click", () => goTo(i, true));
-      dotsWrap.appendChild(dot);
-    });
-    const dots = Array.from(dotsWrap.children);
-
-    function goTo(i, user) {
-      index = (i + slides.length) % slides.length;
-      slides.forEach((s, j) => s.classList.toggle("is-active", j === index));
-      dots.forEach((d, j) => d.classList.toggle("is-active", j === index));
-      if (user) restart();
-    }
-    slider.querySelectorAll(".slider__btn").forEach((btn) => {
-      btn.addEventListener("click", () => goTo(index + Number(btn.dataset.dir), true));
-    });
-
-    function restart() {
-      if (reduceMotion) return;
-      clearInterval(timer);
-      timer = setInterval(() => goTo(index + 1, false), 7000);
-    }
-    slider.addEventListener("pointerenter", () => clearInterval(timer));
-    slider.addEventListener("pointerleave", restart);
-    restart();
-  }
-
   /* ---------- Contact form → mail client ---------- */
   const form = document.querySelector(".contact__form");
   if (form) {
@@ -224,9 +186,9 @@
         note.textContent = "Please fill in every field with a valid email.";
         return;
       }
-      const subject = encodeURIComponent("Project inquiry from " + name.value.trim());
+      const subject = encodeURIComponent("Inquiry from " + name.value.trim() + " — via portfolio");
       const body = encodeURIComponent(message.value.trim() + "\n\n— " + name.value.trim() + " (" + email.value.trim() + ")");
-      location.href = "mailto:hello@patrickgarcia.dev?subject=" + subject + "&body=" + body;
+      location.href = "mailto:patrickjeri.garcia@gmail.com?subject=" + subject + "&body=" + body;
       note.textContent = "Opening your email client…";
       showToast("Thanks! Your email draft is ready to send.");
       form.reset();
