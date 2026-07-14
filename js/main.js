@@ -167,12 +167,47 @@
     }
   }
 
-  /* ---------- Contact form → mail client ---------- */
+  /* ---------- Contact: anti-spam ----------
+     The address never appears in plaintext in the page source; it is
+     decoded and injected at runtime, which defeats non-JS scrapers.
+     The form adds a honeypot, a minimum-fill-time check, and a
+     cooldown between submissions. */
+  const contactAddr = atob("cGF0cmlja2plcmkuZ2FyY2lhQGdtYWlsLmNvbQ==");
+  const emailLink = document.getElementById("email-link");
+  const emailSlot = document.getElementById("email-slot");
+  if (emailLink && emailSlot) {
+    emailSlot.textContent = contactAddr;
+    emailLink.href = "mailto:" + contactAddr;
+  }
+
   const form = document.querySelector(".contact__form");
   if (form) {
     const note = form.querySelector(".contact__form-note");
+    const loadedAt = Date.now();
+    const MIN_FILL_MS = 3000;
+    const COOLDOWN_MS = 30000;
+    let lastSubmit = 0;
+
     form.addEventListener("submit", (e) => {
       e.preventDefault();
+
+      // Honeypot: hidden field humans never see; bots auto-fill it.
+      // Fail silently so bots can't learn they were detected.
+      if (form.elements.company_website && form.elements.company_website.value) {
+        note.textContent = "Opening your email client…";
+        form.reset();
+        return;
+      }
+      // Bots submit within milliseconds of page load; humans don't.
+      if (Date.now() - loadedAt < MIN_FILL_MS) {
+        note.textContent = "Please take a moment to review your message, then send again.";
+        return;
+      }
+      if (Date.now() - lastSubmit < COOLDOWN_MS) {
+        note.textContent = "Message already prepared — check your email client before sending another.";
+        return;
+      }
+
       const name = form.elements.name;
       const email = form.elements.email;
       const message = form.elements.message;
@@ -186,9 +221,10 @@
         note.textContent = "Please fill in every field with a valid email.";
         return;
       }
+      lastSubmit = Date.now();
       const subject = encodeURIComponent("Inquiry from " + name.value.trim() + " — via portfolio");
       const body = encodeURIComponent(message.value.trim() + "\n\n— " + name.value.trim() + " (" + email.value.trim() + ")");
-      location.href = "mailto:patrickjeri.garcia@gmail.com?subject=" + subject + "&body=" + body;
+      location.href = "mailto:" + contactAddr + "?subject=" + subject + "&body=" + body;
       note.textContent = "Opening your email client…";
       showToast("Thanks! Your email draft is ready to send.");
       form.reset();

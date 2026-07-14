@@ -924,6 +924,16 @@ body.has-pointer .cursor-glow { opacity: 1; }
   display: grid;
   gap: 1.2rem;
 }
+/* Honeypot: moved off-screen rather than display:none so naive bots
+   still treat it as a fillable field */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
 .field { display: grid; gap: 0.45rem; }
 .field label {
   font-size: 0.86rem;
