@@ -23,6 +23,14 @@ Built from scratch with no frameworks, no build step, and no dependencies — fa
 - **ATS-friendly** — all resume content is real text in semantic HTML with standard section names and exact keyword phrasing
 - **Responsive** — fluid type/spacing via `clamp()`, adaptive grids, glass mobile menu, no horizontal overflow
 
+## Security
+
+The site ships a strict Content-Security-Policy and referrer policy via `<meta>` tags, keeps the
+contact email out of the page source (runtime-decoded), and guards the form with a honeypot and
+timing checks. To add HTTP-header-level protections (header CSP with `frame-ancestors`, HSTS,
+`X-Content-Type-Options`, `Permissions-Policy`) via a custom domain on Cloudflare, see
+[`docs/security-headers.md`](docs/security-headers.md).
+
 ## Run locally
 
 ```bash
