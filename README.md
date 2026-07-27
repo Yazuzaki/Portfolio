@@ -12,13 +12,14 @@ Built from scratch with no frameworks, no build step, and no dependencies — fa
 - **Core capabilities** — Microsoft 365 & Cloud, Networking & Domains, Systems & Hardware, Web Development
 - **Experience** — outcome-focused timeline: Esquire Tech Corp, APSoft, Alorica, SDCA internship
 - **Case studies** — four real areas of ownership, each opening a deep-linkable dialog (`#case/m365`, `#case/domains`, `#case/pos`, `#case/vendors`) with context, approach, scope, and tools
-- **Builds** — three self-directed engineering projects, each opening a deep-linkable dialog (`#case/coretech`, `#case/aurora`, `#case/fintrack`) with the problem, the approach, and a "What I learned" section
+- **Builds** — three self-directed engineering projects, each opening a deep-linkable dialog (`#case/coretech`, `#case/aurora`, `#case/fintrack`) with the problem, the approach, a playable mini-demo, and a "What I learned" section
 - **Technical skills** — ATS-friendly grouped skill lists matching the resume
 - **Credentials** — certifications (Cisco ×3, ITS HTML/CSS, TOEIC), education, and achievements
 - **Contact** — email, GitHub, and a form that drafts an email
 
 ## Engineering notes
 
+- **Interactive demos** — each build case study embeds a self-contained, dependency-free mini-version of that project's signature feature (compatibility engine, quick-add parser, budget engine). They build their DOM with `textContent` only and run entirely in-page, so nothing is fetched and nothing is injected.
 - **Performance** — zero JS dependencies, deferred scripts, self-hosted variable fonts (latin subset, preloaded), CSS-drawn card artwork instead of images, GPU-friendly transforms, IntersectionObserver-driven reveals
 - **Accessibility** — semantic landmarks, skip link, ARIA dialog with focus trapping and Escape-to-close, visible focus states, `prefers-reduced-motion` respected everywhere
 - **ATS-friendly** — all resume content is real text in semantic HTML with standard section names and exact keyword phrasing
@@ -49,6 +50,7 @@ python3 -m http.server 8000
 ├── fonts/          # woff2 files
 └── js/
     ├── main.js     # Reveals, nav, tilt, counters, form, toast
+    ├── demos.js    # Interactive mini-demos for the build case studies
     └── projects.js # Case-study data + accessible overlay with hash routing
 ```
 
@@ -56,6 +58,7 @@ python3 -m http.server 8000
 
 - **Experience / skills / credentials** — edit the matching sections in `index.html`
 - **Case studies** — cards live in `index.html` (`#work`); full stories live in `js/projects.js` (`PROJECTS` object)
+- **Builds** — cards live in `index.html` (`#builds`); write-ups live in the same `PROJECTS` object with `kind: "build"`, and their playable demos live in `js/demos.js` (one builder per slug, registered in `BUILDERS`)
 - **Colors** — design tokens at the top of `css/style.css` (`--accent-1..3`, `--gradient`)
 
 Deployment is automatic: any push to `main` (or the active feature branch) triggers the GitHub Pages workflow in `.github/workflows/deploy-pages.yml`.
