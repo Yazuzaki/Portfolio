@@ -20,7 +20,7 @@ Built from scratch with no frameworks, no build step, and no dependencies — fa
 ## Engineering notes
 
 - **Interactive demos** — each build case study embeds a self-contained, dependency-free mini-version of that project's signature feature (compatibility engine, quick-add parser, budget engine). They build their DOM with `textContent` only and run entirely in-page, so nothing is fetched and nothing is injected.
-- **Performance** — zero JS dependencies, deferred scripts, self-hosted variable fonts (latin subset, preloaded), CSS-drawn card artwork instead of images, GPU-friendly transforms, IntersectionObserver-driven reveals
+- **Performance** — zero JS dependencies, deferred scripts, self-hosted variable fonts (latin subset, preloaded), CSS-drawn artwork for the IT case-study cards, GPU-friendly transforms, IntersectionObserver-driven reveals. The build cards carry real app screenshots as lazy-loaded WebP with intrinsic `width`/`height` set (no layout shift) — ~105 KB for all three.
 - **Accessibility** — semantic landmarks, skip link, ARIA dialog with focus trapping and Escape-to-close, visible focus states, `prefers-reduced-motion` respected everywhere
 - **ATS-friendly** — all resume content is real text in semantic HTML with standard section names and exact keyword phrasing
 - **Responsive** — fluid type/spacing via `clamp()`, adaptive grids, glass mobile menu, no horizontal overflow
@@ -48,6 +48,7 @@ python3 -m http.server 8000
 │   ├── fonts.css   # Self-hosted Inter + Sora (variable, latin subset)
 │   └── style.css   # Design tokens + full design system
 ├── fonts/          # woff2 files
+├── img/            # WebP screenshots of the live build projects
 └── js/
     ├── main.js     # Reveals, nav, tilt, counters, form, toast
     ├── demos.js    # Interactive mini-demos for the build case studies
@@ -59,6 +60,7 @@ python3 -m http.server 8000
 - **Experience / skills / credentials** — edit the matching sections in `index.html`
 - **Case studies** — cards live in `index.html` (`#work`); full stories live in `js/projects.js` (`PROJECTS` object)
 - **Builds** — cards live in `index.html` (`#builds`); write-ups live in the same `PROJECTS` object with `kind: "build"`, and their playable demos live in `js/demos.js` (one builder per slug, registered in `BUILDERS`)
+- **Build card screenshots** — `img/*-card.webp` are captures of each project running locally. To refresh one: start that project, screenshot it at 1440x900 with a dark colour scheme, then crop to the card ratio (21/9 for the wide card, 16/10 for the rest) and export as WebP at quality ~82. Bump the `?v=` on the `<img>` so caches pick it up.
 - **Colors** — design tokens at the top of `css/style.css` (`--accent-1..3`, `--gradient`)
 
 Deployment is automatic: any push to `main` (or the active feature branch) triggers the GitHub Pages workflow in `.github/workflows/deploy-pages.yml`.
