@@ -93,6 +93,8 @@
       org: "Personal project",
       period: "2026",
       focus: "Commerce, domain logic & authorization",
+      demoLede:
+        "A scaled-down version of the real compatibility engine, running right here in this page. Pick parts and it checks socket, memory, form factor and clearance, sizes the power supply, and estimates the bottleneck — the same pure-function approach the actual project uses. Try putting an ATX board in the compact case, or an AM5 chip on the AM4 board.",
       overview:
         "CoreTech is an eCommerce platform for computer components and custom PC builds. Beyond the usual catalog, cart, and checkout, it has a compatibility engine that checks a proposed build in real time — socket and chipset matching, memory and form-factor fit, GPU and cooler clearance against the case, PSU wattage with headroom, CPU-to-GPU bottleneck severity, and performance estimates. There's also a role-guarded admin dashboard where every mutation is written to an audit log.",
       challenge:
@@ -121,6 +123,8 @@
       org: "Personal project",
       period: "2026",
       focus: "Offline-first state, a11y & graceful degradation",
+      demoLede:
+        "The app's quick-add parser, live. Type a task the way you'd say it — priority, due date and tags come out of plain text. Completing a task awards XP exactly like the real thing.",
       overview:
         "Aurora Flow is a task, project, habit, goal, and focus-session tracker with analytics and an AI coach. It's keyboard-first — a command palette, quick-add syntax, and jump-to-page shortcuts — and it works completely offline as an installable PWA, with JSON export and import so the data stays portable.",
       challenge:
@@ -150,6 +154,8 @@
       org: "Personal project",
       period: "2026",
       focus: "Monorepo contracts, auth & API design",
+      demoLede:
+        "The budget engine from Fintrack, simplified. Add spending and watch category budgets, warning thresholds, savings rate and the financial health score all recompute — the same pure finance math that's unit-tested in isolation in the real project.",
       overview:
         "Fintrack is a personal finance platform built as a pnpm workspace monorepo: a Next.js 15 app that serves both the web UI and the REST API, an Expo React Native mobile app, and a shared package holding every type and validation schema both clients use. It covers transactions, budgets with alerts, reports with CSV and JSON export, charts, an admin area, and a full auth lifecycle.",
       challenge:
@@ -211,6 +217,15 @@
       ? { challenge: "The hard part", solution: "How I built it", results: "At a glance", stack: "Stack" }
       : { challenge: "Why it matters", solution: "How I handle it", results: "Scope", stack: "Tools &amp; environment" };
 
+    const hasDemo = !!(window.PortfolioDemos && window.PortfolioDemos.has(slug));
+    const demoHTML = hasDemo
+      ? `<div class="cs__section">
+          <h3>Try it</h3>
+          <p class="cs__demo-lede">${esc(p.demoLede || "A scaled-down, self-contained version of the real thing — it runs entirely in this page.")}</p>
+          <div class="demo" data-demo="${esc(slug)}"></div>
+        </div>`
+      : "";
+
     const learnedHTML = p.learned
       ? `<div class="cs__section">
           <h3>What I learned</h3>
@@ -242,6 +257,7 @@
           <h3>${labels.solution}</h3>
           <p>${esc(p.solution)}</p>
         </div>
+        ${demoHTML}
         ${learnedHTML}
         <div class="cs__section">
           <h3>${labels.results}</h3>
@@ -259,6 +275,7 @@
           <button type="button" data-goto="${esc(next)}">${esc(PROJECTS[next].title)} &rarr;</button>
         </nav>
       </div>`;
+    if (window.PortfolioDemos) window.PortfolioDemos.mount(content);
     return true;
   }
 
@@ -316,7 +333,8 @@
     if (e.key === "Escape" && !overlay.hidden) close();
     // Rudimentary focus trap
     if (e.key === "Tab" && !overlay.hidden) {
-      const focusables = overlay.querySelectorAll("button, [href], [tabindex='-1']");
+      // Includes the form controls the interactive demos add.
+      const focusables = overlay.querySelectorAll("button, [href], input, select, textarea, [tabindex='-1']");
       const list = Array.from(focusables).filter((el) => !el.disabled);
       if (!list.length) return;
       const first = list[0];
