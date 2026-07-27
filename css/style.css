@@ -496,6 +496,9 @@ body.has-pointer .cursor-glow { opacity: 1; }
 [data-art="domains"] { --art-bg: linear-gradient(130deg, #052030, #155e75 55%, #134e4a); }
 [data-art="pos"]     { --art-bg: linear-gradient(130deg, #04211c, #065f46 55%, #0c4a6e); }
 [data-art="vendors"] { --art-bg: linear-gradient(130deg, #0c1226, #1e2a5d 50%, #14535e); }
+[data-art="coretech"] { --art-bg: linear-gradient(130deg, #1b0b33, #4c1d95 48%, #0e4f63); }
+[data-art="aurora"]   { --art-bg: linear-gradient(130deg, #140c3a, #3730a3 50%, #0e7490); }
+[data-art="fintrack"] { --art-bg: linear-gradient(130deg, #04231f, #0f766e 52%, #1e3a8a); }
 
 .art__scene {
   position: absolute;
@@ -1081,6 +1084,38 @@ body.has-pointer .cursor-glow { opacity: 1; }
   background: var(--gradient);
 }
 .cs__section p { color: var(--ink-muted); }
+.cs__learned {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  list-style: none;
+  padding: 0;
+}
+.cs__learned li {
+  position: relative;
+  padding: 0.85rem 1.1rem 0.85rem 2.6rem;
+  border-radius: var(--radius-m);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--ink-muted);
+  line-height: 1.6;
+}
+.cs__learned li::before {
+  content: "";
+  position: absolute;
+  left: 1.15rem;
+  top: 1.45rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gradient);
+}
+.cs__note {
+  margin-top: 0.9rem;
+  font-size: 0.84rem;
+  color: var(--ink-muted);
+  opacity: 0.85;
+}
 .cs__results {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

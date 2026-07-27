@@ -84,9 +84,107 @@
       ],
       stack: ["Vendor management", "Escalation handling", "LAN / WAN", "Router & switch config", "Network troubleshooting"],
     },
+
+    /* ---- Self-directed builds. `learned` is the point of these entries. ---- */
+    coretech: {
+      kind: "build",
+      title: "CoreTech — PC Parts eCommerce",
+      role: "Solo full-stack developer",
+      org: "Personal project",
+      period: "2026",
+      focus: "Commerce, domain logic & authorization",
+      overview:
+        "CoreTech is an eCommerce platform for computer components and custom PC builds. Beyond the usual catalog, cart, and checkout, it has a compatibility engine that checks a proposed build in real time — socket and chipset matching, memory and form-factor fit, GPU and cooler clearance against the case, PSU wattage with headroom, CPU-to-GPU bottleneck severity, and performance estimates. There's also a role-guarded admin dashboard where every mutation is written to an audit log.",
+      challenge:
+        "Two things made this harder than a tutorial storefront. The compatibility rules are real domain logic — dozens of interacting constraints that have to give the same answer whether they run on the server or in the browser. And a checkout is the one place in an app where being naive about trust actually costs money.",
+      solution:
+        "I kept the compatibility engine as a single pure function with no framework or database dependency, so the same code path powers instant client-side feedback and server-side validation. Checkout re-computes every price and re-validates every coupon on the server before an order is written, so client-submitted amounts are never trusted. Admin routes are guarded by role rather than by hiding UI, and each mutation appends an audit record.",
+      learned: [
+        "Keeping domain logic as a pure function — no framework, no database — is what let the same rules run on the server and in the browser without drifting apart. It also made the logic testable without booting anything.",
+        "Never trust amounts the client sends you. The lesson landed when I realized my first checkout would happily accept a total the browser calculated; now the server recomputes prices and revalidates coupons before an order exists.",
+        "Authorization belongs on the route, not in the UI. Hiding an admin button hides nothing — the redirect and the role check have to live server-side.",
+        "Automated dependency fixes need reading, not running. The audit tool offered to \"solve\" my advisories by downgrading Next.js to a 2020 release that was dramatically more vulnerable. I pinned the latest 15.x instead, which cleared the critical items, and documented why the transitive ones stay.",
+        "Generating product imagery locally as SVG beat hotlinking someone else's images — no broken links, no licensing question, and it loads instantly offline.",
+      ],
+      results: [
+        { value: "Pure engine", label: "compatibility logic runs identically client & server" },
+        { value: "Server-priced", label: "checkout recomputes totals and coupons" },
+        { value: "RBAC + audit", label: "role-guarded admin, every mutation logged" },
+      ],
+      stack: ["Next.js 15 (App Router)", "React 19", "TypeScript", "Prisma", "Zod", "Tailwind CSS 4", "bcrypt"],
+      note: "Private repository — happy to walk through the code or the compatibility engine on request.",
+    },
+    aurora: {
+      kind: "build",
+      title: "Aurora Flow — Productivity App",
+      role: "Solo full-stack developer",
+      org: "Personal project",
+      period: "2026",
+      focus: "Offline-first state, a11y & graceful degradation",
+      overview:
+        "Aurora Flow is a task, project, habit, goal, and focus-session tracker with analytics and an AI coach. It's keyboard-first — a command palette, quick-add syntax, and jump-to-page shortcuts — and it works completely offline as an installable PWA, with JSON export and import so the data stays portable.",
+      challenge:
+        "I wanted an app that needs no database, no account, and no API key to be genuinely useful, but still has a real upgrade path. That means all state has to live and persist client-side without turning into a tangle, and every optional feature has to have an honest answer for what happens when it isn't configured.",
+      solution:
+        "All state and mutations go through a single Zustand store persisted to localStorage, with a service worker caching the app shell so the whole thing runs with no network. The AI assistant calls any OpenAI-compatible endpoint when a key is present and otherwise falls back to a deterministic offline coach computed from the user's own data — the feature never just disappears. Charts are hand-rolled SVG rather than a charting dependency, and notes render through an XSS-safe Markdown renderer.",
+      learned: [
+        "One store, one place mutations happen. Centralizing every state change in a single Zustand store is what kept a nine-module app from becoming impossible to reason about — and made localStorage persistence a one-line concern instead of a scattered one.",
+        "\"Offline-capable\" is a design constraint, not a feature you bolt on. Deciding up front that the app must work with no network shaped every data decision that followed.",
+        "Optional dependencies need a real fallback, not an error state. Writing a deterministic offline coach for when there's no API key made the AI path better too — I had to define exactly what a good answer looked like before asking a model for one.",
+        "Accessibility is cheap when it's early. Building the keyboard model, ARIA roles, reduced-motion handling, and never-color-alone charts from the start cost almost nothing; retrofitting any of them would have cost a rewrite.",
+        "Rendering user Markdown is an XSS surface. Writing the renderer myself forced me to actually understand what I was escaping instead of trusting a dependency to have thought about it.",
+        "Hand-rolling the SVG charts kept the bundle small and gave me exact control — a good reminder that a library isn't automatically the answer.",
+      ],
+      results: [
+        { value: "Zero-setup", label: "no database, account or API key to run" },
+        { value: "Offline PWA", label: "service worker shell + local persistence" },
+        { value: "WCAG AA", label: "keyboard-first, reduced-motion aware" },
+      ],
+      stack: ["Next.js 15", "React 19", "TypeScript", "Zustand", "Tailwind CSS 4", "Service workers", "Docker"],
+      note: "Private repository — happy to walk through the architecture notes or the state model on request.",
+    },
+    fintrack: {
+      kind: "build",
+      title: "Fintrack — Expense Tracker",
+      role: "Solo full-stack developer",
+      org: "Personal project",
+      period: "2026",
+      focus: "Monorepo contracts, auth & API design",
+      overview:
+        "Fintrack is a personal finance platform built as a pnpm workspace monorepo: a Next.js 15 app that serves both the web UI and the REST API, an Expo React Native mobile app, and a shared package holding every type and validation schema both clients use. It covers transactions, budgets with alerts, reports with CSV and JSON export, charts, an admin area, and a full auth lifecycle.",
+      challenge:
+        "Two clients against one API is where contracts quietly rot. Web and mobile also can't authenticate the same way — a browser wants httpOnly cookies, a mobile app wants bearer tokens in secure storage — so one API had to serve both without two sets of rules.",
+      solution:
+        "A shared package holds every DTO type and Zod schema; the backend validates with them and both clients import them, so a contract change is one edit in one place. The backend is layered — route → a wrapper handling auth, validation, and error mapping → a service layer → Prisma — with the pure finance math isolated so it can be unit-tested on its own. Every endpoint returns the same success/error envelope. Passwords use Argon2id, access tokens are short-lived JWTs, and refresh tokens are opaque and stored only as SHA-256 hashes. CI spins up a real Postgres and runs typecheck, lint, tests, and build on every push.",
+      learned: [
+        "A shared contract package is the difference between a monorepo and two projects in one folder. Types and Zod schemas in one place meant the API couldn't drift from its clients without the build telling me.",
+        "Validating once, at the boundary, with the same schema the client uses is far safer than defensive checks scattered through the handlers.",
+        "One API can serve two auth transports cleanly — httpOnly cookies for the browser, bearer tokens plus rotating refresh for mobile — as long as you separate 'who is this user' from 'how did they prove it'.",
+        "Store refresh tokens as hashes, never in plaintext. If the database leaks, hashed refresh tokens are useless to whoever has it — the same reasoning as passwords, which I'd previously only applied to passwords.",
+        "Pulling the finance math out into pure functions made it the easiest part of the codebase to trust, because it was the only part I could test without a database.",
+        "A uniform response envelope pays for itself in the clients. Both apps have exactly one place that interprets an error, not one per screen.",
+        "CI running against a real Postgres caught things a mocked database never would. Making typecheck, lint, test, and build a gate rather than a habit is what actually kept the branch green.",
+      ],
+      results: [
+        { value: "1 contract", label: "shared types & Zod schemas for web + mobile" },
+        { value: "2 clients", label: "Next.js web app and Expo mobile app" },
+        { value: "CI gated", label: "typecheck → lint → test → build on Postgres" },
+      ],
+      stack: ["Next.js 15", "React Native (Expo)", "TypeScript", "PostgreSQL", "Prisma", "Zod", "Argon2id / JWT", "TanStack Query", "Vitest", "Docker"],
+      note: "Private repository — happy to walk through the API design or the shared-contract setup on request.",
+    },
   };
 
-  const ORDER = ["m365", "domains", "pos", "vendors"];
+  // Prev/next navigation stays inside its own group.
+  const GROUPS = [
+    ["m365", "domains", "pos", "vendors"],
+    ["coretech", "aurora", "fintrack"],
+  ];
+  const ORDER = GROUPS.flat();
+
+  function groupOf(slug) {
+    return GROUPS.find((g) => g.indexOf(slug) !== -1) || ORDER;
+  }
 
   const overlay = document.getElementById("case-study");
   const panel = overlay ? overlay.querySelector(".case-study__panel") : null;
@@ -103,9 +201,23 @@
   function render(slug) {
     const p = PROJECTS[slug];
     if (!p) return false;
-    const idx = ORDER.indexOf(slug);
-    const prev = ORDER[(idx - 1 + ORDER.length) % ORDER.length];
-    const next = ORDER[(idx + 1) % ORDER.length];
+    const group = groupOf(slug);
+    const idx = group.indexOf(slug);
+    const prev = group[(idx - 1 + group.length) % group.length];
+    const next = group[(idx + 1) % group.length];
+
+    const isBuild = p.kind === "build";
+    const labels = isBuild
+      ? { challenge: "The hard part", solution: "How I built it", results: "At a glance", stack: "Stack" }
+      : { challenge: "Why it matters", solution: "How I handle it", results: "Scope", stack: "Tools &amp; environment" };
+
+    const learnedHTML = p.learned
+      ? `<div class="cs__section">
+          <h3>What I learned</h3>
+          <ul class="cs__learned">${p.learned.map((l) => `<li>${esc(l)}</li>`).join("")}</ul>
+        </div>`
+      : "";
+    const noteHTML = p.note ? `<p class="cs__note">${esc(p.note)}</p>` : "";
 
     content.innerHTML = `
       <div class="cs__hero" data-art="${esc(slug)}">
@@ -123,26 +235,28 @@
           <p>${esc(p.overview)}</p>
         </div>
         <div class="cs__section">
-          <h3>Why it matters</h3>
+          <h3>${labels.challenge}</h3>
           <p>${esc(p.challenge)}</p>
         </div>
         <div class="cs__section">
-          <h3>How I handle it</h3>
+          <h3>${labels.solution}</h3>
           <p>${esc(p.solution)}</p>
         </div>
+        ${learnedHTML}
         <div class="cs__section">
-          <h3>Scope</h3>
+          <h3>${labels.results}</h3>
           <div class="cs__results">
             ${p.results.map((r) => `<div class="cs__result"><strong>${esc(r.value)}</strong><span>${esc(r.label)}</span></div>`).join("")}
           </div>
         </div>
         <div class="cs__section">
-          <h3>Tools &amp; environment</h3>
+          <h3>${labels.stack}</h3>
           <ul class="chips cs__stack">${p.stack.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>
+          ${noteHTML}
         </div>
         <nav class="cs__nav" aria-label="Case study navigation">
-          <button type="button" data-goto="${esc(prev)}">← ${esc(PROJECTS[prev].title)}</button>
-          <button type="button" data-goto="${esc(next)}">${esc(PROJECTS[next].title)} →</button>
+          <button type="button" data-goto="${esc(prev)}">&larr; ${esc(PROJECTS[prev].title)}</button>
+          <button type="button" data-goto="${esc(next)}">${esc(PROJECTS[next].title)} &rarr;</button>
         </nav>
       </div>`;
     return true;

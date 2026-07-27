@@ -13,8 +13,8 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233b82f6'/%3E%3Cstop offset='1' stop-color='%2322d3ee'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%230a0a12'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='url(%23g)' text-anchor='middle'%3EPG%3C/text%3E%3C/svg%3E" />
   <link rel="preload" href="fonts/sora-var.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="css/fonts.css?v=4" />
-  <link rel="stylesheet" href="css/style.css?v=4" />
+  <link rel="stylesheet" href="css/fonts.css?v=5" />
+  <link rel="stylesheet" href="css/style.css?v=5" />
 </head>
 <body id="top">
   <a class="skip-link" href="#experience">Skip to content</a>
@@ -34,6 +34,7 @@
       <ul class="nav__menu" id="nav-menu">
         <li><a href="#experience" class="nav__link">Experience</a></li>
         <li><a href="#work" class="nav__link">Case Studies</a></li>
+        <li><a href="#builds" class="nav__link">Builds</a></li>
         <li><a href="#skills" class="nav__link">Skills</a></li>
         <li><a href="#credentials" class="nav__link">Credentials</a></li>
         <li><a href="#contact" class="nav__cta btn btn--small btn--primary">Contact me</a></li>
@@ -329,11 +330,102 @@
       </div>
     </section>
 
+    <!-- ===== Builds (self-directed engineering projects) ===== -->
+    <section class="section work builds" id="builds" aria-labelledby="builds-title">
+      <div class="container">
+        <header class="section__head" data-reveal>
+          <p class="section__eyebrow">04 — Builds</p>
+          <h2 class="section__title" id="builds-title">Things I've <span class="gradient-text">built</span></h2>
+          <p class="section__lede">Self-directed projects I built to go deeper than day-to-day IT work lets me. Each card is less about the feature list and more about what the build actually taught me — click through for the lessons.</p>
+        </header>
+
+        <div class="project-grid">
+          <article class="project-card project-card--wide" data-project="coretech" data-reveal tabindex="0" role="button" aria-haspopup="dialog" aria-label="Open build write-up: CoreTech eCommerce platform">
+            <div class="project-card__art" data-art="coretech" aria-hidden="true">
+              <div class="art__scene">
+                <div class="art__window">
+                  <div class="art__bar"><i></i><i></i><i></i></div>
+                  <div class="art__chart">
+                    <svg viewBox="0 0 200 80" preserveAspectRatio="none"><path d="M0 62 C25 60 45 20 72 28 S112 55 138 22 178 12 200 18" fill="none" stroke="url(#lgB1)" stroke-width="3" stroke-linecap="round"/><defs><linearGradient id="lgB1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a855f7"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs></svg>
+                  </div>
+                  <div class="art__rows"><i></i><i></i><i></i></div>
+                </div>
+                <div class="art__pill art__pill--a">Compatibility engine</div>
+                <div class="art__pill art__pill--b">Next.js 15 · Prisma</div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__meta">
+                <span class="project-card__index">05</span>
+                <span class="project-card__year">Personal build</span>
+              </div>
+              <h3 class="project-card__title">CoreTech — PC Parts eCommerce</h3>
+              <p class="project-card__desc">A full storefront for PC components with a deterministic build-compatibility engine, server-validated checkout, and a role-guarded admin dashboard with audit logging.</p>
+              <ul class="chips" aria-label="Technology stack">
+                <li>Next.js 15</li><li>TypeScript</li><li>Prisma</li><li>Zod</li><li>Tailwind CSS</li>
+              </ul>
+              <span class="project-card__link">Read what I learned <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </article>
+
+          <article class="project-card" data-project="aurora" data-reveal tabindex="0" role="button" aria-haspopup="dialog" aria-label="Open build write-up: Aurora Flow productivity app">
+            <div class="project-card__art" data-art="aurora" aria-hidden="true">
+              <div class="art__scene">
+                <div class="art__window">
+                  <div class="art__bar"><i></i><i></i><i></i></div>
+                  <div class="art__rows"><i></i><i></i><i></i></div>
+                  <div class="art__rows art__rows--tight"><i></i><i></i></div>
+                </div>
+                <div class="art__pill art__pill--a">Offline-first PWA</div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__meta">
+                <span class="project-card__index">06</span>
+                <span class="project-card__year">Personal build</span>
+              </div>
+              <h3 class="project-card__title">Aurora Flow — Productivity App</h3>
+              <p class="project-card__desc">A keyboard-first task, habit, and focus tracker that runs fully offline — with an AI coach that degrades to a deterministic local fallback when no API key is present.</p>
+              <ul class="chips" aria-label="Technology stack">
+                <li>Next.js 15</li><li>Zustand</li><li>TypeScript</li><li>PWA</li><li>Tailwind CSS</li>
+              </ul>
+              <span class="project-card__link">Read what I learned <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </article>
+
+          <article class="project-card" data-project="fintrack" data-reveal tabindex="0" role="button" aria-haspopup="dialog" aria-label="Open build write-up: Fintrack expense tracker">
+            <div class="project-card__art" data-art="fintrack" aria-hidden="true">
+              <div class="art__scene">
+                <div class="art__phone">
+                  <div class="art__phone-img"></div>
+                  <div class="art__rows art__rows--tight"><i></i><i></i></div>
+                  <div class="art__btn"></div>
+                </div>
+                <div class="art__pill art__pill--a">Web + mobile, one API</div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__meta">
+                <span class="project-card__index">07</span>
+                <span class="project-card__year">Personal build</span>
+              </div>
+              <h3 class="project-card__title">Fintrack — Expense Tracker</h3>
+              <p class="project-card__desc">A pnpm monorepo where a Next.js web app and an Expo mobile app share one REST API, one set of types, and one set of Zod schemas — with Argon2id auth and rotating refresh sessions.</p>
+              <ul class="chips" aria-label="Technology stack">
+                <li>Next.js 15</li><li>Expo</li><li>PostgreSQL</li><li>Prisma</li><li>Zod</li><li>Vitest</li>
+              </ul>
+              <span class="project-card__link">Read what I learned <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== Technical skills (ATS-friendly) ===== -->
     <section class="section skills-list" id="skills" aria-labelledby="skills-title">
       <div class="container">
         <header class="section__head" data-reveal>
-          <p class="section__eyebrow">04 — Technical Skills</p>
+          <p class="section__eyebrow">05 — Technical Skills</p>
           <h2 class="section__title" id="skills-title">The full <span class="gradient-text">toolkit</span></h2>
         </header>
         <div class="skillset">
@@ -381,7 +473,7 @@
     <section class="section credentials" id="credentials" aria-labelledby="credentials-title">
       <div class="container">
         <header class="section__head" data-reveal>
-          <p class="section__eyebrow">05 — Credentials</p>
+          <p class="section__eyebrow">06 — Credentials</p>
           <h2 class="section__title" id="credentials-title">Certifications &amp; <span class="gradient-text">education</span></h2>
         </header>
         <div class="cred__layout">
@@ -458,7 +550,7 @@
       <div class="container contact__inner">
         <div class="contact__intro">
           <header class="section__head" data-reveal>
-            <p class="section__eyebrow">06 — Contact</p>
+            <p class="section__eyebrow">07 — Contact</p>
             <h2 class="section__title" id="contact-title">Need reliable IT?<br /><span class="gradient-text">Let's talk.</span></h2>
           </header>
           <p data-reveal>I'm open to IT Officer, Systems Administrator, IT Support Engineer, and Microsoft 365 Administrator opportunities. Reach out and I'll respond within 24 hours.</p>
@@ -535,7 +627,7 @@
     </div>
   </div>
 
-  <script src="js/projects.js?v=4" defer></script>
-  <script src="js/main.js?v=4" defer></script>
+  <script src="js/projects.js?v=5" defer></script>
+  <script src="js/main.js?v=5" defer></script>
 </body>
 </html>

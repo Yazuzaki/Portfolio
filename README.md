@@ -12,6 +12,7 @@ Built from scratch with no frameworks, no build step, and no dependencies — fa
 - **Core capabilities** — Microsoft 365 & Cloud, Networking & Domains, Systems & Hardware, Web Development
 - **Experience** — outcome-focused timeline: Esquire Tech Corp, APSoft, Alorica, SDCA internship
 - **Case studies** — four real areas of ownership, each opening a deep-linkable dialog (`#case/m365`, `#case/domains`, `#case/pos`, `#case/vendors`) with context, approach, scope, and tools
+- **Builds** — three self-directed engineering projects, each opening a deep-linkable dialog (`#case/coretech`, `#case/aurora`, `#case/fintrack`) with the problem, the approach, and a "What I learned" section
 - **Technical skills** — ATS-friendly grouped skill lists matching the resume
 - **Credentials** — certifications (Cisco ×3, ITS HTML/CSS, TOEIC), education, and achievements
 - **Contact** — email, GitHub, and a form that drafts an email
