@@ -496,6 +496,29 @@ body.has-pointer .cursor-glow { opacity: 1; }
 [data-art="domains"] { --art-bg: linear-gradient(130deg, #052030, #155e75 55%, #134e4a); }
 [data-art="pos"]     { --art-bg: linear-gradient(130deg, #04211c, #065f46 55%, #0c4a6e); }
 [data-art="vendors"] { --art-bg: linear-gradient(130deg, #0c1226, #1e2a5d 50%, #14535e); }
+/* Build cards use a real screenshot of the running app instead of drawn art.
+   The gradient below still shows while the image loads (or if it fails). */
+.project-card__art--shot .art__shot {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.9s var(--ease-out);
+}
+.project-card:hover .project-card__art--shot .art__shot,
+.project-card:focus-visible .project-card__art--shot .art__shot { transform: scale(1.04); }
+/* Hairline inset + a soft bottom fade so the shot meets the card body cleanly. */
+.project-card__art--shot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+  background: linear-gradient(to bottom, transparent 62%, rgba(8, 8, 14, 0.55) 100%);
+}
+
 [data-art="coretech"] { --art-bg: linear-gradient(130deg, #1b0b33, #4c1d95 48%, #0e4f63); }
 [data-art="aurora"]   { --art-bg: linear-gradient(130deg, #140c3a, #3730a3 50%, #0e7490); }
 [data-art="fintrack"] { --art-bg: linear-gradient(130deg, #04231f, #0f766e 52%, #1e3a8a); }
@@ -1482,6 +1505,9 @@ body.overlay-open { overflow: hidden; }
   .project-grid { grid-template-columns: 1fr; }
   .project-card--wide { grid-column: auto; }
   .project-card--wide .project-card__art { aspect-ratio: 16 / 10; }
+  /* Screenshots keep their wide ratio here — squeezing them to 16/10 would
+     crop the sides off the captured page instead of just showing less of it. */
+  .project-card--wide .project-card__art--shot { aspect-ratio: 21 / 9; }
   .skills__grid, .skills__grid--four { grid-template-columns: 1fr; }
   .skillset { grid-template-columns: 1fr; }
   .cred__layout { grid-template-columns: 1fr; }
