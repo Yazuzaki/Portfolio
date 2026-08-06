@@ -1,610 +1,681 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; form-action 'none'; frame-src 'none'; upgrade-insecure-requests" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <title>Patrick Garcia — IT Officer · Microsoft 365 &amp; Infrastructure Support</title>
-  <meta name="description" content="Portfolio of Patrick Garcia — IT Officer supporting 100+ users across Microsoft 365, Exchange Online, Google Workspace, networking, DNS and domain management, POS systems, and multi-site IT infrastructure." />
-  <meta property="og:title" content="Patrick Garcia — IT Officer · Microsoft 365 & Infrastructure Support" />
-  <meta property="og:description" content="IT Officer with hands-on experience in Microsoft 365 administration, Exchange Online, networking, domain management, and multi-site infrastructure support." />
-  <meta property="og:type" content="website" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233b82f6'/%3E%3Cstop offset='1' stop-color='%2322d3ee'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%230a0a12'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='url(%23g)' text-anchor='middle'%3EPG%3C/text%3E%3C/svg%3E" />
-  <link rel="preload" href="fonts/sora-var.woff2" as="font" type="font/woff2" crossorigin />
+  <meta name="theme-color" content="#08080a" />
+
+  <title>Patrick Garcia — IT Officer &amp; Full-Stack Developer</title>
+  <meta name="description" content="Patrick Garcia — IT Officer running Microsoft 365, networking, and domain infrastructure for 100+ users across multiple sites, and a full-stack developer shipping production-architecture web and mobile applications." />
+  <link rel="canonical" href="https://patrickgarcia.dev/" />
+
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Patrick Garcia — IT Officer &amp; Full-Stack Developer" />
+  <meta property="og:description" content="I keep systems online, and build the software that runs on them. Microsoft 365, networking and domains for 100+ users — plus three full-stack products you can explore." />
+  <meta property="og:image" content="img/coretech-hero.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23f1efea'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='34' fill='%2308080a' text-anchor='middle'%3EPG%3C/text%3E%3C/svg%3E" />
+  <link rel="preload" href="fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="css/fonts.css?v=6" />
-  <link rel="stylesheet" href="css/style.css?v=6" />
+  <link rel="preload" href="fonts/jetbrains-mono-var.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/fonts.css?v=7" />
+  <link rel="stylesheet" href="css/style.css?v=7" />
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Patrick Garcia","jobTitle":"IT Officer","email":"mailto:patrickjeri.garcia@gmail.com","url":"https://patrickgarcia.dev/","address":{"@type":"PostalAddress","addressCountry":"PH"},"alumniOf":{"@type":"CollegeOrUniversity","name":"St. Dominic College of Asia"},"knowsAbout":["Microsoft 365 Administration","Exchange Online","DNS and domain management","Network administration","POS systems","Full-stack web development","Next.js","TypeScript"],"sameAs":["https://github.com/Yazuzaki"]}
+  </script>
 </head>
 <body id="top">
-  <a class="skip-link" href="#experience">Skip to content</a>
-  <div class="cursor-glow" aria-hidden="true"></div>
-  <div class="noise" aria-hidden="true"></div>
+  <a class="skip-link" href="#work">Skip to work</a>
+  <div class="progress" aria-hidden="true"></div>
 
-  <!-- ===== Header ===== -->
-  <header class="site-header">
-    <nav class="nav glass" aria-label="Primary">
-      <a class="nav__logo" href="#top" aria-label="Patrick Garcia — home">
-        <span class="nav__logo-mark" aria-hidden="true">PG</span>
-        <span class="nav__logo-text">Patrick&nbsp;Garcia</span>
+  <!-- ============================================================
+       Masthead
+       ============================================================ -->
+  <header class="masthead">
+    <div class="shell masthead__inner">
+      <a class="wordmark" href="#top" aria-label="Patrick Garcia — top of page">
+        <span class="wordmark__mark" aria-hidden="true">PG</span>
+        <span>Patrick&nbsp;Garcia</span>
       </a>
-      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+
+      <button class="burger" aria-expanded="false" aria-controls="menu" aria-label="Menu">
         <span></span><span></span>
       </button>
-      <ul class="nav__menu" id="nav-menu">
-        <li><a href="#experience" class="nav__link">Experience</a></li>
-        <li><a href="#work" class="nav__link">Case Studies</a></li>
-        <li><a href="#builds" class="nav__link">Builds</a></li>
-        <li><a href="#skills" class="nav__link">Skills</a></li>
-        <li><a href="#credentials" class="nav__link">Credentials</a></li>
-        <li><a href="#contact" class="nav__cta btn btn--small btn--primary">Contact me</a></li>
-      </ul>
-    </nav>
+
+      <nav class="menu" id="menu" aria-label="Sections">
+        <a class="menu__link" href="#work">Work</a>
+        <a class="menu__link" href="#field">Field notes</a>
+        <a class="menu__link" href="#path">Experience</a>
+        <a class="menu__link" href="#toolkit">Toolkit</a>
+        <a class="menu__link" href="#credentials">Credentials</a>
+        <a class="menu__cta" href="#contact">Get in touch</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <!-- ===== Hero ===== -->
-    <section class="hero" aria-label="Introduction">
-      <div class="hero__bg" aria-hidden="true">
-        <div class="hero__blob hero__blob--1"></div>
-        <div class="hero__blob hero__blob--2"></div>
-        <div class="hero__blob hero__blob--3"></div>
-        <div class="hero__grid"></div>
-      </div>
-      <div class="container hero__inner">
-        <p class="hero__eyebrow" data-reveal>
-          <span class="dot" aria-hidden="true"></span> IT Officer · Philippines
-        </p>
-        <h1 class="hero__title" data-reveal>
-          I keep <span class="gradient-text">100+ users</span><br />
-          productive and<br />
-          systems online.
-        </h1>
-        <p class="hero__sub" data-reveal>
-          IT Officer specializing in Microsoft 365 and Exchange Online administration,
-          networking, domain management, and multi-site infrastructure support —
-          from user provisioning and email security to POS systems and vendor coordination.
-        </p>
-        <div class="hero__actions" data-reveal>
-          <a class="btn btn--primary btn--magnetic" href="#experience">
-            View experience
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <!-- ============================================================
+         Opening — statement left, instrumentation right
+         ============================================================ -->
+    <section class="opening" aria-label="Introduction">
+      <div class="shell">
+        <div class="grid">
+          <div class="opening__body">
+            <p class="opening__eyebrow" data-reveal>
+              <span class="status-dot" aria-hidden="true"></span>
+              Available — IT Officer, Philippines
+            </p>
+
+            <h1 class="opening__title display" id="opening-title">
+              <span class="line"><span data-i="0">I keep systems</span></span>
+              <span class="line"><span data-i="1"><em>online</em> — and build</span></span>
+              <span class="line"><span data-i="2">the software that</span></span>
+              <span class="line"><span data-i="3">runs on them.</span></span>
+            </h1>
+
+            <p class="opening__lede" data-reveal data-i="1">
+              I run Microsoft 365, networks, and domain infrastructure for 100+ users across
+              multiple business locations. Off the clock I build full-stack products —
+              three of them are below, with the architecture decisions and the lessons
+              that came out of them.
+            </p>
+
+            <div class="opening__actions" data-reveal data-i="2">
+              <a class="action action--accent" href="#work">
+                Selected work
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a class="action" href="#contact">Get in touch</a>
+            </div>
+          </div>
+
+          <!-- Stats given a job: a scope readout, not three orphan numbers -->
+          <aside class="opening__panel" data-reveal data-i="3" aria-label="Current scope">
+            <dl class="panel">
+              <div class="panel__row"><dt>Systems</dt><dd>Operational <span class="status-dot" aria-hidden="true"></span></dd></div>
+              <div class="panel__row"><dt>Users supported</dt><dd><span class="num" data-count="100">0</span>+</dd></div>
+              <div class="panel__row"><dt>Business sites</dt><dd>Multi-site</dd></div>
+              <div class="panel__row"><dt>ISP vendors</dt><dd><span class="num" data-count="5" data-pad="2">0</span></dd></div>
+              <div class="panel__row"><dt>Certifications</dt><dd><span class="num" data-count="5" data-pad="2">0</span></dd></div>
+              <div class="panel__row"><dt>Shipped builds</dt><dd><span class="num" data-count="3" data-pad="2">0</span></dd></div>
+              <div class="panel__row"><dt>Based</dt><dd>PH · UTC+8</dd></div>
+            </dl>
+            <p class="panel__caption">Current scope — Esquire Tech Corp</p>
+          </aside>
+        </div>
+
+        <div class="opening__foot">
+          <a class="scroll-cue" href="#disciplines">
+            <i aria-hidden="true"></i> Scroll
           </a>
-          <a class="btn btn--ghost" href="#contact">Get in touch</a>
-        </div>
-        <dl class="hero__stats" data-reveal>
-          <div class="stat">
-            <dt>Users supported daily</dt>
-            <dd><span class="stat__num" data-count="100">0</span>+</dd>
-          </div>
-          <div class="stat">
-            <dt>Industry certifications</dt>
-            <dd><span class="stat__num" data-count="5">0</span></dd>
-          </div>
-          <div class="stat">
-            <dt>ISP &amp; telecom vendors managed</dt>
-            <dd><span class="stat__num" data-count="5">0</span></dd>
-          </div>
-        </dl>
-      </div>
-      <a class="hero__scroll" href="#capabilities" aria-label="Scroll to capabilities">
-        <span class="hero__scroll-line" aria-hidden="true"></span>
-        Scroll
-      </a>
-    </section>
-
-    <!-- ===== Core capabilities ===== -->
-    <section class="section skills" id="capabilities" aria-labelledby="capabilities-title">
-      <div class="container">
-        <header class="section__head" data-reveal>
-          <p class="section__eyebrow">01 — What I Do</p>
-          <h2 class="section__title" id="capabilities-title">Core <span class="gradient-text">capabilities</span></h2>
-          <p class="section__lede">Four areas of ownership, built across enterprise support environments and multi-location business operations.</p>
-        </header>
-        <div class="skills__grid skills__grid--four">
-          <div class="skill-card glass" data-reveal>
-            <div class="skill-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M7 16a4 4 0 1 1 .3-8A5.5 5.5 0 0 1 18 9.5 3.5 3.5 0 0 1 17.5 16H7Z" stroke="url(#sg1)" stroke-width="1.8" stroke-linejoin="round"/><defs><linearGradient id="sg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs></svg>
-            </div>
-            <h3>Microsoft 365 &amp; Cloud</h3>
-            <p>Tenant administration, Exchange Online, user provisioning, licensing, mailbox management, Google Workspace, and email migration support.</p>
-            <ul class="chips"><li>Microsoft 365</li><li>Exchange Online</li><li>Google Workspace</li><li>Email migration</li></ul>
-          </div>
-          <div class="skill-card glass" data-reveal>
-            <div class="skill-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="5" r="2.2" stroke="url(#sg2)" stroke-width="1.8"/><circle cx="5" cy="18" r="2.2" stroke="url(#sg2)" stroke-width="1.8"/><circle cx="19" cy="18" r="2.2" stroke="url(#sg2)" stroke-width="1.8"/><path d="M10.8 6.8 6.2 16m7-9.2 4.6 9.2M7.2 18h9.6" stroke="url(#sg2)" stroke-width="1.8"/><defs><linearGradient id="sg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs></svg>
-            </div>
-            <h3>Networking &amp; Domains</h3>
-            <p>LAN/WAN and router/switch configuration, DNS and MX records, SPF/DKIM/DMARC email authentication, SSL certificates, and domain lifecycle management.</p>
-            <ul class="chips"><li>LAN / WAN</li><li>DNS &amp; MX</li><li>SPF · DKIM · DMARC</li><li>SSL certificates</li></ul>
-          </div>
-          <div class="skill-card glass" data-reveal>
-            <div class="skill-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="12" rx="2" stroke="url(#sg3)" stroke-width="1.8"/><path d="M8 20h8m-4-4v4" stroke="url(#sg3)" stroke-width="1.8" stroke-linecap="round"/><defs><linearGradient id="sg3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34d399"/><stop offset="1" stop-color="#3b82f6"/></linearGradient></defs></svg>
-            </div>
-            <h3>Systems &amp; Hardware</h3>
-            <p>Windows administration, workstation and laptop support, POS deployment, printers, CCTV systems, and preventive maintenance that minimizes downtime.</p>
-            <ul class="chips"><li>Windows</li><li>POS systems</li><li>Printers &amp; CCTV</li><li>Preventive maintenance</li></ul>
-          </div>
-          <div class="skill-card glass" data-reveal>
-            <div class="skill-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="m8 6-5 6 5 6M16 6l5 6-5 6M13.5 4l-3 16" stroke="url(#sg4)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="sg4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs></svg>
-            </div>
-            <h3>Web Development</h3>
-            <p>Internal tools and web applications with PHP, CodeIgniter, JavaScript, and MySQL — a developer's perspective applied to IT operations.</p>
-            <ul class="chips"><li>PHP / CodeIgniter</li><li>JavaScript</li><li>MySQL</li><li>Git</li></ul>
-          </div>
-        </div>
-      </div>
-      <div class="marquee" data-reveal aria-hidden="true">
-        <div class="marquee__track">
-          <span>Microsoft 365</span><span>•</span><span>Exchange Online</span><span>•</span><span>Google Workspace</span><span>•</span><span>DNS</span><span>•</span><span>Windows</span><span>•</span><span>Networking</span><span>•</span><span>POS Systems</span><span>•</span><span>SSL</span><span>•</span><span>CCTV</span><span>•</span><span>PHP</span><span>•</span><span>MySQL</span><span>•</span>
-          <span>Microsoft 365</span><span>•</span><span>Exchange Online</span><span>•</span><span>Google Workspace</span><span>•</span><span>DNS</span><span>•</span><span>Windows</span><span>•</span><span>Networking</span><span>•</span><span>POS Systems</span><span>•</span><span>SSL</span><span>•</span><span>CCTV</span><span>•</span><span>PHP</span><span>•</span><span>MySQL</span><span>•</span>
+          <p class="mono">Est. 2023 — still shipping</p>
         </div>
       </div>
     </section>
 
-    <!-- ===== Experience ===== -->
-    <section class="section experience" id="experience" aria-labelledby="experience-title">
-      <div class="container">
-        <header class="section__head" data-reveal>
-          <p class="section__eyebrow">02 — Experience</p>
-          <h2 class="section__title" id="experience-title">Professional <span class="gradient-text">experience</span></h2>
-        </header>
-        <ol class="timeline">
-          <li class="timeline__item" data-reveal>
-            <div class="timeline__marker" aria-hidden="true"></div>
-            <div class="timeline__card glass">
-              <div class="timeline__head">
-                <h3>IT Officer</h3>
-                <span class="timeline__period">Mar 2026 — Present</span>
-              </div>
-              <p class="timeline__org">Esquire Tech Corp</p>
-              <ul class="timeline__points">
-                <li>Own day-to-day IT operations for <strong>100+ users across multiple business locations</strong> — technical support, system administration, and infrastructure.</li>
-                <li>Administer <strong>Microsoft 365 and Exchange Online</strong>: user provisioning, licensing, mailbox management, and account troubleshooting; support Google Workspace and email migration activities.</li>
-                <li>Manage the company's domain footprint — <strong>DNS, MX, SPF/DKIM/DMARC, and SSL certificates</strong> — protecting email deliverability and service continuity.</li>
-                <li>Coordinate with <strong>PLDT, Smart Enterprise, Converge, Globe, and SKY</strong> on service requests, escalations, and account management.</li>
-                <li>Maintain network devices, printers, CCTV, POS systems, and workstations; keep IT documentation and asset inventories audit-ready.</li>
-              </ul>
-            </div>
-          </li>
-          <li class="timeline__item" data-reveal>
-            <div class="timeline__marker" aria-hidden="true"></div>
-            <div class="timeline__card glass">
-              <div class="timeline__head">
-                <h3>Technical Support Engineer</h3>
-                <span class="timeline__period">Dec 2024 — Mar 2026</span>
-              </div>
-              <p class="timeline__org">APSoft (under Metro Jobs Agency)</p>
-              <ul class="timeline__points">
-                <li>Delivered <strong>onsite and remote support</strong> for business clients running POS and back-office systems.</li>
-                <li>Installed and configured POS terminals, receipt printers, barcode scanners, operating systems, and business applications.</li>
-                <li>Performed hardware diagnostics, component replacement, and software deployment; ran <strong>preventive maintenance to minimize client downtime</strong>.</li>
-                <li>Documented technical procedures and service activity, building a knowledge base that sped up future resolutions.</li>
-              </ul>
-            </div>
-          </li>
-          <li class="timeline__item" data-reveal>
-            <div class="timeline__marker" aria-hidden="true"></div>
-            <div class="timeline__card glass">
-              <div class="timeline__head">
-                <h3>Customer Experience Agent</h3>
-                <span class="timeline__period">Jul 2024 — Oct 2024</span>
-              </div>
-              <p class="timeline__org">Alorica</p>
-              <ul class="timeline__points">
-                <li>Supported customers across <strong>phone, chat, and email</strong> while maintaining high satisfaction standards.</li>
-                <li>Resolved technical inquiries using internal systems and knowledge bases; collaborated with QA teams on process compliance and service quality.</li>
-              </ul>
-            </div>
-          </li>
-          <li class="timeline__item" data-reveal>
-            <div class="timeline__marker" aria-hidden="true"></div>
-            <div class="timeline__card glass">
-              <div class="timeline__head">
-                <h3>Intern Web Developer</h3>
-                <span class="timeline__period">Aug 2023 — Nov 2023</span>
-              </div>
-              <p class="timeline__org">St. Dominic College of Asia</p>
-              <ul class="timeline__points">
-                <li>Developed and maintained academic web systems using <strong>CodeIgniter 3, PHP, MySQL, HTML, CSS, and JavaScript</strong>.</li>
-                <li>Implemented front-end and back-end features; debugged, tested, and optimized application performance.</li>
-              </ul>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ===== Case studies ===== -->
-    <section class="section work" id="work" aria-labelledby="work-title">
-      <div class="container">
-        <header class="section__head" data-reveal>
-          <p class="section__eyebrow">03 — Case Studies</p>
-          <h2 class="section__title" id="work-title">How I <span class="gradient-text">work</span></h2>
-          <p class="section__lede">Real areas of ownership from my current and previous roles — the context, my approach, and the scope I handle. Click any card for the full story.</p>
+    <!-- ============================================================
+         Disciplines — an index of what I own
+         ============================================================ -->
+    <section class="disciplines" id="disciplines" aria-labelledby="disciplines-title">
+      <div class="shell">
+        <header class="disciplines__head">
+          <div data-reveal>
+            <p class="marker">What I own</p>
+            <h2 id="disciplines-title" class="mt-head">Four disciplines, one operating standard.</h2>
+          </div>
+          <p class="lede" data-reveal data-i="1">
+            Built across enterprise support environments and multi-location business
+            operations — the same rigour applied whether it's a mailbox or a merge.
+          </p>
         </header>
 
-        <div class="project-grid">
-          <article class="project-card project-card--wide" data-project="m365" data-reveal tabindex="0" role="button" aria-haspopup="dialog" aria-label="Open case study: Microsoft 365 administration for 100+ users">
-            <div class="project-card__art" data-art="m365" aria-hidden="true">
-              <div class="art__scene">
-                <div class="art__window">
-                  <div class="art__bar"><i></i><i></i><i></i></div>
-                  <div class="art__chart">
-                    <svg viewBox="0 0 200 80" preserveAspectRatio="none"><path d="M0 70 C30 65 40 30 70 35 S110 60 140 30 180 15 200 10" fill="none" stroke="url(#lg1)" stroke-width="3" stroke-linecap="round"/><defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs></svg>
-                  </div>
-                  <div class="art__rows"><i></i><i></i><i></i></div>
-                </div>
-                <div class="art__pill art__pill--a">100+ mailboxes</div>
-                <div class="art__pill art__pill--b">Exchange Online</div>
-              </div>
+        <div class="index">
+          <article class="index__row" data-reveal>
+            <p class="index__i">01</p>
+            <h3 class="index__title">Cloud&nbsp;&amp;&nbsp;Identity</h3>
+            <div class="index__desc">
+              Tenant administration, Exchange Online, the full account lifecycle — provisioning,
+              licensing, mailbox management — plus Google Workspace and email migration.
+              <span class="keys">Microsoft 365 · Exchange Online · Google Workspace · Outlook</span>
             </div>
-            <div class="project-card__body">
-              <div class="project-card__meta">
-                <span class="project-card__index">01</span>
-                <span class="project-card__year">Current role</span>
-              </div>
-              <h3 class="project-card__title">Microsoft 365 at Scale</h3>
-              <p class="project-card__desc">Administering identity, email, and licensing for 100+ users across multiple business locations — provisioning to troubleshooting.</p>
-              <ul class="chips" aria-label="Technology stack">
-                <li>Microsoft 365</li><li>Exchange Online</li><li>Google Workspace</li><li>Outlook</li>
-              </ul>
-              <span class="project-card__link">Read the case study <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            </div>
+            <span class="index__arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
           </article>
 
-          <article class="project-card" data-project="domains" data-reveal tabindex="0" role="button" aria-haspopup="dialog" aria-label="Open case study: Email security and domain management">
-            <div class="project-card__art" data-art="domains" aria-hidden="true">
-              <div class="art__scene">
-                <div class="art__window">
-                  <div class="art__bar"><i></i><i></i><i></i></div>
-                  <div class="art__rows"><i></i><i></i><i></i></div>
-                  <div class="art__rows art__rows--tight"><i></i><i></i></div>
-                </div>
-                <div class="art__pill art__pill--a">SPF · DKIM · DMARC</div>
-              </div>
+          <article class="index__row" data-reveal>
+            <p class="index__i">02</p>
+            <h3 class="index__title">Network&nbsp;&amp;&nbsp;Domains</h3>
+            <div class="index__desc">
+              LAN/WAN and router-switch configuration, DNS and MX records, SPF/DKIM/DMARC
+              authentication, SSL lifecycles, and the renewal calendar that stops any of it expiring quietly.
+              <span class="keys">DNS · SPF/DKIM/DMARC · SSL · LAN/WAN</span>
             </div>
-            <div class="project-card__body">
-              <div class="project-card__meta">
-                <span class="project-card__index">02</span>
-                <span class="project-card__year">Current role</span>
-              </div>
-              <h3 class="project-card__title">Email Security &amp; Domains</h3>
-              <p class="project-card__desc">Owning DNS, email authentication, and SSL lifecycles so business email stays trusted and services stay reachable.</p>
-              <ul class="chips" aria-label="Technology stack">
-                <li>DNS &amp; MX</li><li>SPF / DKIM / DMARC</li><li>SSL</li><li>Domain renewals</li>
-              </ul>
-              <span class="project-card__link">Read the case study <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            </div>
+            <span class="index__arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
           </article>
 
-          <article class="project-card" data-project="pos" data-reveal tabindex="0" role="button" aria-haspopup="dialog" aria-label="Open case study: Multi-site POS and retail IT support">
-            <div class="project-card__art" data-art="pos" aria-hidden="true">
-              <div class="art__scene">
-                <div class="art__phone">
-                  <div class="art__phone-img"></div>
-                  <div class="art__rows art__rows--tight"><i></i><i></i></div>
-                  <div class="art__btn"></div>
-                </div>
-                <div class="art__pill art__pill--a">Onsite + remote</div>
-              </div>
+          <article class="index__row" data-reveal>
+            <p class="index__i">03</p>
+            <h3 class="index__title">Systems&nbsp;&amp;&nbsp;Hardware</h3>
+            <div class="index__desc">
+              Windows administration, workstation and laptop support, POS deployment,
+              printers, CCTV, and the preventive maintenance that keeps revenue-critical
+              terminals from failing during trade.
+              <span class="keys">Windows · POS · Printers · CCTV · Diagnostics</span>
             </div>
-            <div class="project-card__body">
-              <div class="project-card__meta">
-                <span class="project-card__index">03</span>
-                <span class="project-card__year">2024 — Present</span>
-              </div>
-              <h3 class="project-card__title">POS &amp; Retail IT Support</h3>
-              <p class="project-card__desc">Keeping revenue-critical POS terminals, printers, and scanners running for business clients — deployment through preventive maintenance.</p>
-              <ul class="chips" aria-label="Technology stack">
-                <li>POS terminals</li><li>Receipt printers</li><li>Barcode scanners</li><li>Windows</li>
-              </ul>
-              <span class="project-card__link">Read the case study <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            </div>
+            <span class="index__arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
           </article>
 
-          <article class="project-card project-card--wide" data-project="vendors" data-reveal tabindex="0" role="button" aria-haspopup="dialog" aria-label="Open case study: ISP and vendor coordination">
-            <div class="project-card__art" data-art="vendors" aria-hidden="true">
-              <div class="art__scene">
-                <div class="art__type">5<span>ISPs</span></div>
-                <div class="art__orbits"><i></i><i></i><i></i></div>
-                <div class="art__pill art__pill--a">Escalation owner</div>
-              </div>
+          <article class="index__row" data-reveal>
+            <p class="index__i">04</p>
+            <h3 class="index__title">Software&nbsp;Engineering</h3>
+            <div class="index__desc">
+              Full-stack products end to end — typed APIs, relational schemas, auth,
+              and interfaces. A developer's instincts applied to IT work, and IT
+              operations experience applied back to the code.
+              <span class="keys">TypeScript · Next.js · PostgreSQL · Prisma · PHP</span>
             </div>
-            <div class="project-card__body">
-              <div class="project-card__meta">
-                <span class="project-card__index">04</span>
-                <span class="project-card__year">Current role</span>
-              </div>
-              <h3 class="project-card__title">Vendor &amp; ISP Coordination</h3>
-              <p class="project-card__desc">Single point of contact for PLDT, Smart Enterprise, Converge, Globe, and SKY — service requests, escalations, and account management across locations.</p>
-              <ul class="chips" aria-label="Vendors">
-                <li>PLDT</li><li>Smart Enterprise</li><li>Converge</li><li>Globe</li><li>SKY</li>
-              </ul>
-              <span class="project-card__link">Read the case study <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            </div>
+            <span class="index__arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ===== Builds (self-directed engineering projects) ===== -->
-    <section class="section work builds" id="builds" aria-labelledby="builds-title">
-      <div class="container">
-        <header class="section__head" data-reveal>
-          <p class="section__eyebrow">04 — Builds</p>
-          <h2 class="section__title" id="builds-title">Things I've <span class="gradient-text">built</span></h2>
-          <p class="section__lede">Self-directed projects I built to go deeper than day-to-day IT work lets me. Each card is less about the feature list and more about what the build actually taught me — click through for the lessons.</p>
+    <!-- ============================================================
+         Selected work — the centrepiece, alternating compositions
+         ============================================================ -->
+    <section class="work" id="work" aria-labelledby="work-title">
+      <div class="shell">
+        <header class="work__head">
+          <p class="marker" data-reveal>Selected work</p>
+          <h2 class="display" id="work-title" data-reveal>Three products, built end to end.</h2>
+          <p data-reveal data-i="1">
+            Self-directed builds — architecture, data model, auth, interface, deployment.
+            Each opens a full case study with the problem, the approach, a working demo,
+            and what it actually taught me.
+          </p>
         </header>
 
-        <div class="project-grid">
-          <article class="project-card project-card--wide" data-project="coretech" data-reveal tabindex="0" role="button" aria-haspopup="dialog" aria-label="Open build write-up: CoreTech eCommerce platform">
-            <div class="project-card__art project-card__art--shot" data-art="coretech" aria-hidden="true">
-              <img class="art__shot" src="img/coretech-card.webp?v=6" width="1600" height="686" loading="lazy" decoding="async" alt="" />
-            </div>
-            <div class="project-card__body">
-              <div class="project-card__meta">
-                <span class="project-card__index">05</span>
-                <span class="project-card__year">Personal build</span>
+        <!-- 01 CoreTech -->
+        <article class="case">
+          <div class="case__media" data-reveal data-wipe>
+            <a href="#case/coretech" data-open="coretech" aria-label="Open the CoreTech case study">
+              <div class="frame">
+                <img src="img/coretech-hero.webp?v=7" width="1760" height="1100" alt="The CoreTech storefront: a dark product page headlined “Build a PC that just works”, with a featured build card showing estimated FPS, compatibility and future-proof ratings." loading="lazy" decoding="async" />
               </div>
-              <h3 class="project-card__title">CoreTech — PC Parts eCommerce</h3>
-              <p class="project-card__desc">A full storefront for PC components with a deterministic build-compatibility engine, server-validated checkout, and a role-guarded admin dashboard with audit logging.</p>
-              <ul class="chips" aria-label="Technology stack">
-                <li>Next.js 15</li><li>TypeScript</li><li>Prisma</li><li>Zod</li><li>Tailwind CSS</li>
-              </ul>
-              <span class="project-card__link">Read what I learned <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </a>
+          </div>
+          <div class="case__body" data-reveal data-i="1">
+            <p class="case__meta"><span>01</span><span>2026</span><span>Solo build</span></p>
+            <h3 class="case__title">CoreTech</h3>
+            <p class="case__thesis">
+              An eCommerce platform for PC components with a real-time compatibility
+              engine — and a checkout that never trusts the browser.
+            </p>
+            <div class="case__stats">
+              <div class="case__stat"><b>1 engine</b><span>pure function, runs client &amp; server</span></div>
+              <div class="case__stat"><b>5 checks</b><span>socket, memory, fit, clearance, power</span></div>
+              <div class="case__stat"><b>RBAC</b><span>role-guarded admin, audit-logged</span></div>
             </div>
-          </article>
+            <ul class="tags case__tags" aria-label="Stack">
+              <li>Next.js 15</li><li>TypeScript</li><li>Prisma</li><li>Zod</li><li>Tailwind</li>
+            </ul>
+            <a class="action" href="#case/coretech" data-open="coretech">
+              Read the case study
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
 
-          <article class="project-card" data-project="aurora" data-reveal tabindex="0" role="button" aria-haspopup="dialog" aria-label="Open build write-up: Aurora Flow productivity app">
-            <div class="project-card__art project-card__art--shot" data-art="aurora" aria-hidden="true">
-              <img class="art__shot" src="img/aurora-card.webp?v=6" width="1200" height="750" loading="lazy" decoding="async" alt="" />
-            </div>
-            <div class="project-card__body">
-              <div class="project-card__meta">
-                <span class="project-card__index">06</span>
-                <span class="project-card__year">Personal build</span>
+        <!-- 02 Aurora Flow -->
+        <article class="case">
+          <div class="case__media" data-reveal data-wipe>
+            <a href="#case/aurora" data-open="aurora" aria-label="Open the Aurora Flow case study">
+              <div class="frame">
+                <img src="img/aurora-hero.webp?v=7" width="1760" height="1100" alt="The Aurora Flow dashboard: a dark productivity app showing today's focus tasks, progress rings, streaks and an XP level bar." loading="lazy" decoding="async" />
               </div>
-              <h3 class="project-card__title">Aurora Flow — Productivity App</h3>
-              <p class="project-card__desc">A keyboard-first task, habit, and focus tracker that runs fully offline — with an AI coach that degrades to a deterministic local fallback when no API key is present.</p>
-              <ul class="chips" aria-label="Technology stack">
-                <li>Next.js 15</li><li>Zustand</li><li>TypeScript</li><li>PWA</li><li>Tailwind CSS</li>
-              </ul>
-              <span class="project-card__link">Read what I learned <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </a>
+          </div>
+          <div class="case__body" data-reveal data-i="1">
+            <p class="case__meta"><span>02</span><span>2026</span><span>Solo build</span></p>
+            <h3 class="case__title">Aurora&nbsp;Flow</h3>
+            <p class="case__thesis">
+              A keyboard-first productivity system that works with no database,
+              no account, and no network — and degrades honestly when the AI isn't configured.
+            </p>
+            <div class="case__stats">
+              <div class="case__stat"><b>9 modules</b><span>tasks, habits, focus, goals, notes…</span></div>
+              <div class="case__stat"><b>0 servers</b><span>required to run the whole app</span></div>
+              <div class="case__stat"><b>WCAG AA</b><span>keyboard model built in from day one</span></div>
             </div>
-          </article>
+            <ul class="tags case__tags" aria-label="Stack">
+              <li>Next.js 15</li><li>Zustand</li><li>TypeScript</li><li>PWA</li><li>Docker</li>
+            </ul>
+            <a class="action" href="#case/aurora" data-open="aurora">
+              Read the case study
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
 
-          <article class="project-card" data-project="fintrack" data-reveal tabindex="0" role="button" aria-haspopup="dialog" aria-label="Open build write-up: Fintrack expense tracker">
-            <div class="project-card__art project-card__art--shot" data-art="fintrack" aria-hidden="true">
-              <img class="art__shot" src="img/fintrack-card.webp?v=6" width="1200" height="750" loading="lazy" decoding="async" alt="" />
-            </div>
-            <div class="project-card__body">
-              <div class="project-card__meta">
-                <span class="project-card__index">07</span>
-                <span class="project-card__year">Personal build</span>
+        <!-- 03 Fintrack -->
+        <article class="case">
+          <div class="case__media" data-reveal data-wipe>
+            <a href="#case/fintrack" data-open="fintrack" aria-label="Open the Fintrack case study">
+              <div class="frame">
+                <img src="img/fintrack-hero.webp?v=7" width="1760" height="1100" alt="The Fintrack dashboard: a dark finance app showing total balance, income and expenses, an income-versus-expenses bar chart and a financial health score dial." loading="lazy" decoding="async" />
               </div>
-              <h3 class="project-card__title">Fintrack — Expense Tracker</h3>
-              <p class="project-card__desc">A pnpm monorepo where a Next.js web app and an Expo mobile app share one REST API, one set of types, and one set of Zod schemas — with Argon2id auth and rotating refresh sessions.</p>
-              <ul class="chips" aria-label="Technology stack">
-                <li>Next.js 15</li><li>Expo</li><li>PostgreSQL</li><li>Prisma</li><li>Zod</li><li>Vitest</li>
-              </ul>
-              <span class="project-card__link">Read what I learned <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </a>
+          </div>
+          <div class="case__body" data-reveal data-i="1">
+            <p class="case__meta"><span>03</span><span>2026</span><span>Solo build</span></p>
+            <h3 class="case__title">Fintrack</h3>
+            <p class="case__thesis">
+              A finance platform where a web app and a native mobile app share one API,
+              one set of types, and one set of validation schemas.
+            </p>
+            <div class="case__stats">
+              <div class="case__stat"><b>2 clients</b><span>Next.js web + Expo mobile</span></div>
+              <div class="case__stat"><b>1 contract</b><span>shared types &amp; Zod schemas</span></div>
+              <div class="case__stat"><b>4 gates</b><span>typecheck → lint → test → build</span></div>
             </div>
-          </article>
-        </div>
+            <ul class="tags case__tags" aria-label="Stack">
+              <li>Next.js 15</li><li>Expo</li><li>PostgreSQL</li><li>Prisma</li><li>Argon2id</li><li>Vitest</li>
+            </ul>
+            <a class="action" href="#case/fintrack" data-open="fintrack">
+              Read the case study
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
       </div>
     </section>
 
-    <!-- ===== Technical skills (ATS-friendly) ===== -->
-    <section class="section skills-list" id="skills" aria-labelledby="skills-title">
-      <div class="container">
-        <header class="section__head" data-reveal>
-          <p class="section__eyebrow">05 — Technical Skills</p>
-          <h2 class="section__title" id="skills-title">The full <span class="gradient-text">toolkit</span></h2>
+    <!-- ============================================================
+         Field notes — IT ownership, registered not merchandised
+         ============================================================ -->
+    <section class="field" id="field" aria-labelledby="field-title">
+      <div class="shell">
+        <header class="field__head">
+          <p class="marker" data-reveal>Field notes</p>
+          <h2 id="field-title" data-reveal>Where the uptime actually comes from.</h2>
+          <p data-reveal data-i="1">
+            Four areas of real ownership from my current and previous roles. Scope and
+            approach — facts, not invented metrics.
+          </p>
         </header>
-        <div class="skillset">
-          <div class="skillset__group glass" data-reveal>
-            <h3>Microsoft 365 &amp; Cloud Services</h3>
-            <ul class="chips">
-              <li>Microsoft 365 Administration</li><li>Exchange Online</li><li>Outlook Configuration &amp; Troubleshooting</li><li>Google Workspace Administration</li><li>Email Migration Support</li>
-            </ul>
-          </div>
-          <div class="skillset__group glass" data-reveal>
-            <h3>Networking &amp; Infrastructure</h3>
-            <ul class="chips">
-              <li>LAN/WAN Configuration</li><li>Router &amp; Switch Configuration</li><li>DNS Management</li><li>Domain Administration</li><li>SSL Certificate Management</li><li>Network Troubleshooting</li>
-            </ul>
-          </div>
-          <div class="skillset__group glass" data-reveal>
-            <h3>Systems &amp; Hardware</h3>
-            <ul class="chips">
-              <li>Windows Administration</li><li>PC &amp; Laptop Troubleshooting</li><li>Hardware Installation &amp; Maintenance</li><li>POS System Deployment &amp; Support</li><li>Printer Configuration &amp; Support</li><li>CCTV System Support</li>
-            </ul>
-          </div>
-          <div class="skillset__group glass" data-reveal>
-            <h3>Development</h3>
-            <ul class="chips">
-              <li>PHP</li><li>JavaScript</li><li>HTML</li><li>CSS</li><li>CodeIgniter 3</li><li>Laravel (Basic)</li><li>Git</li><li>MySQL</li>
-            </ul>
-          </div>
-          <div class="skillset__group glass" data-reveal>
-            <h3>Operating Systems</h3>
-            <ul class="chips">
-              <li>Windows</li><li>Linux (Basic)</li>
-            </ul>
-          </div>
-          <div class="skillset__group glass" data-reveal>
-            <h3>Professional Skills</h3>
-            <ul class="chips">
-              <li>Communication</li><li>Teamwork</li><li>Analytical Thinking</li><li>Problem Solving</li><li>Adaptability</li><li>Time Management</li><li>Customer Service</li><li>Technical Documentation</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ===== Credentials: certifications, education, achievements ===== -->
-    <section class="section credentials" id="credentials" aria-labelledby="credentials-title">
-      <div class="container">
-        <header class="section__head" data-reveal>
-          <p class="section__eyebrow">06 — Credentials</p>
-          <h2 class="section__title" id="credentials-title">Certifications &amp; <span class="gradient-text">education</span></h2>
-        </header>
-        <div class="cred__layout">
-          <div class="cred__certs">
-            <h3 class="cred__subhead" data-reveal>Certifications</h3>
-            <ul class="cert-list">
-              <li class="cert-card glass" data-reveal>
-                <span class="cert-card__badge" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 10h6m-6 4h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-                </span>
-                <div>
-                  <strong>Computer Hardware Basics</strong>
-                  <span>Cisco Networking Academy</span>
-                </div>
-              </li>
-              <li class="cert-card glass" data-reveal>
-                <span class="cert-card__badge" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="5" r="2" stroke="currentColor" stroke-width="1.6"/><circle cx="5" cy="19" r="2" stroke="currentColor" stroke-width="1.6"/><circle cx="19" cy="19" r="2" stroke="currentColor" stroke-width="1.6"/><path d="M10.8 6.6 6 17.2M13.2 6.6 18 17.2M7 19h10" stroke="currentColor" stroke-width="1.6"/></svg>
-                </span>
-                <div>
-                  <strong>Networking Basics</strong>
-                  <span>Cisco Networking Academy</span>
-                </div>
-              </li>
-              <li class="cert-card glass" data-reveal>
-                <span class="cert-card__badge" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v3m0 12v3m9-9h-3M6 12H3m14.5-5.5-2 2m-7 7-2 2m11 0-2-2m-7-7-2-2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="1.6"/></svg>
-                </span>
-                <div>
-                  <strong>Introduction to IoT</strong>
-                  <span>Cisco Networking Academy</span>
-                </div>
-              </li>
-              <li class="cert-card glass" data-reveal>
-                <span class="cert-card__badge" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none"><path d="m8 6-5 6 5 6M16 6l5 6-5 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </span>
-                <div>
-                  <strong>IT Specialist: HTML and CSS</strong>
-                  <span>Certiport</span>
-                </div>
-              </li>
-              <li class="cert-card glass" data-reveal>
-                <span class="cert-card__badge" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none"><path d="M4 19V5a1 1 0 0 1 1-1h9l6 6v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 4v6h6M8 14h8m-8 3h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-                </span>
-                <div>
-                  <strong>TOEIC Listening &amp; Reading</strong>
-                  <span>ETS — English proficiency</span>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="cred__side">
-            <h3 class="cred__subhead" data-reveal>Education</h3>
-            <div class="edu-card glass" data-reveal>
-              <strong>BS in Information Technology</strong>
-              <span>St. Dominic College of Asia</span>
-              <span class="edu-card__year">Graduated July 2024</span>
-            </div>
-            <h3 class="cred__subhead" data-reveal>Achievements</h3>
-            <ul class="achievement-list" data-reveal>
-              <li><strong>Best in Practicum</strong> — top internship performance in the BSIT program</li>
-              <li><strong>Dean's Lister</strong> — 1st Semester, A.Y. 2023–2024</li>
-              <li><strong>RISE IT Student Immersion Program</strong> — May 2024</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Contact ===== -->
-    <section class="section contact" id="contact" aria-labelledby="contact-title">
-      <div class="container contact__inner">
-        <div class="contact__intro">
-          <header class="section__head" data-reveal>
-            <p class="section__eyebrow">07 — Contact</p>
-            <h2 class="section__title" id="contact-title">Need reliable IT?<br /><span class="gradient-text">Let's talk.</span></h2>
-          </header>
-          <p data-reveal>I'm open to IT Officer, Systems Administrator, IT Support Engineer, and Microsoft 365 Administrator opportunities. Reach out and I'll respond within 24 hours.</p>
-          <ul class="contact__channels" data-reveal>
-            <li>
-              <a class="contact__channel" id="email-link" href="#contact" rel="nofollow">
-                <span class="contact__channel-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </span>
-                <span id="email-slot"><noscript>patrickjeri [dot] garcia [at] gmail [dot] com</noscript></span>
-              </a>
-            </li>
-            <li>
-              <a class="contact__channel" href="https://github.com/Yazuzaki" rel="noopener" target="_blank">
-                <span class="contact__channel-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 0 0-2.85 17.54c.45.08.62-.2.62-.44v-1.68c-2.5.55-3.03-1.07-3.03-1.07-.41-1.04-1-1.32-1-1.32-.82-.56.06-.55.06-.55.9.06 1.38.93 1.38.93.8 1.38 2.11.98 2.63.75.08-.59.31-.98.57-1.21-2-.23-4.1-1-4.1-4.45 0-.98.35-1.79.93-2.42-.1-.23-.4-1.15.08-2.4 0 0 .76-.24 2.48.92a8.6 8.6 0 0 1 4.5 0c1.72-1.16 2.48-.92 2.48-.92.49 1.25.18 2.17.09 2.4.58.63.92 1.44.92 2.42 0 3.46-2.1 4.22-4.11 4.44.32.28.61.83.61 1.67v2.47c0 .24.16.53.62.44A9 9 0 0 0 12 3Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
-                </span>
-                github.com/Yazuzaki
-              </a>
-            </li>
-            <li>
-              <span class="contact__channel contact__channel--static">
-                <span class="contact__channel-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5.1 7-11a7 7 0 1 0-14 0c0 5.9 7 11 7 11Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg>
-                </span>
-                Philippines · onsite, hybrid, or remote
-              </span>
-            </li>
-          </ul>
-        </div>
-        <form class="contact__form glass" data-reveal novalidate>
-          <!-- Honeypot: invisible to humans; bots that fill it are silently dropped -->
-          <div class="hp-field" aria-hidden="true">
-            <label for="cf-company">Company website</label>
-            <input id="cf-company" name="company_website" type="text" tabindex="-1" autocomplete="off" />
-          </div>
-          <div class="field">
-            <label for="cf-name">Name</label>
-            <input id="cf-name" name="name" type="text" autocomplete="name" required placeholder="Jane dela Cruz" />
-          </div>
-          <div class="field">
-            <label for="cf-email">Email</label>
-            <input id="cf-email" name="email" type="email" autocomplete="email" required placeholder="jane@company.com" />
-          </div>
-          <div class="field">
-            <label for="cf-message">Message</label>
-            <textarea id="cf-message" name="message" rows="5" required placeholder="Tell me about the role or the problem you need solved…"></textarea>
-          </div>
-          <button class="btn btn--primary btn--block" type="submit">
-            Send message
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="register">
+          <button class="register__row" type="button" data-open="m365" data-reveal aria-haspopup="dialog">
+            <span class="register__i">01</span>
+            <span class="register__title">Microsoft 365 at Scale</span>
+            <span class="register__org">Esquire Tech Corp<br />Mar 2026 — Present</span>
+            <span class="register__scope">100+ mailboxes · Provisioning · Licensing · Migration</span>
+            <span class="register__arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
           </button>
-          <p class="contact__form-note" role="status" aria-live="polite"></p>
-        </form>
+
+          <button class="register__row" type="button" data-open="domains" data-reveal aria-haspopup="dialog">
+            <span class="register__i">02</span>
+            <span class="register__title">Email Security &amp; Domains</span>
+            <span class="register__org">Esquire Tech Corp<br />Mar 2026 — Present</span>
+            <span class="register__scope">DNS · MX · SPF/DKIM/DMARC · SSL lifecycle</span>
+            <span class="register__arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+
+          <button class="register__row" type="button" data-open="pos" data-reveal aria-haspopup="dialog">
+            <span class="register__i">03</span>
+            <span class="register__title">POS &amp; Retail IT Support</span>
+            <span class="register__org">APSoft · Esquire Tech<br />Dec 2024 — Present</span>
+            <span class="register__scope">Terminals · Printers · Scanners · Preventive maintenance</span>
+            <span class="register__arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+
+          <button class="register__row" type="button" data-open="vendors" data-reveal aria-haspopup="dialog">
+            <span class="register__i">04</span>
+            <span class="register__title">Vendor &amp; ISP Coordination</span>
+            <span class="register__org">Esquire Tech Corp<br />Mar 2026 — Present</span>
+            <span class="register__scope">PLDT · Smart · Converge · Globe · SKY</span>
+            <span class="register__arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Trajectory — ledger with a sticky rail
+         ============================================================ -->
+    <section class="path" id="path" aria-labelledby="path-title">
+      <div class="shell">
+        <div class="grid">
+          <div class="path__rail">
+            <div class="path__rail-inner" data-reveal>
+              <p class="marker">Trajectory</p>
+              <h2 id="path-title">From the helpdesk to the whole stack.</h2>
+              <ol class="path__years">
+                <li class="path__year" data-year="0">2026 — Now · IT Officer</li>
+                <li class="path__year" data-year="1">2024 — 2026 · Support Engineer</li>
+                <li class="path__year" data-year="2">2024 · Customer Experience</li>
+                <li class="path__year" data-year="3">2023 · Web Dev Intern</li>
+              </ol>
+            </div>
+          </div>
+
+          <ol class="path__list">
+            <li class="stint" data-reveal data-stint="0">
+              <div class="stint__when"><b>Mar 2026</b>Present</div>
+              <div>
+                <h3 class="stint__role">IT Officer</h3>
+                <p class="stint__org">Esquire Tech Corp</p>
+                <ul class="stint__points">
+                  <li>Own day-to-day IT operations for <strong>100+ users across multiple business locations</strong> — technical support, system administration, and infrastructure.</li>
+                  <li>Administer <strong>Microsoft 365 and Exchange Online</strong>: user provisioning, licensing, mailbox management, and account troubleshooting; support Google Workspace and email migration.</li>
+                  <li>Manage the company's domain footprint — <strong>DNS, MX, SPF/DKIM/DMARC, and SSL certificates</strong> — protecting email deliverability and service continuity.</li>
+                  <li>Coordinate with <strong>PLDT, Smart Enterprise, Converge, Globe, and SKY</strong> on service requests, escalations, and account management.</li>
+                  <li>Maintain network devices, printers, CCTV, POS systems, and workstations; keep IT documentation and asset inventories audit-ready.</li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="stint" data-reveal data-stint="1">
+              <div class="stint__when"><b>Dec 2024</b>Mar 2026</div>
+              <div>
+                <h3 class="stint__role">Technical Support Engineer</h3>
+                <p class="stint__org">APSoft — under Metro Jobs Agency</p>
+                <ul class="stint__points">
+                  <li>Delivered <strong>onsite and remote support</strong> for business clients running POS and back-office systems.</li>
+                  <li>Installed and configured POS terminals, receipt printers, barcode scanners, operating systems, and business applications.</li>
+                  <li>Performed hardware diagnostics, component replacement, and software deployment; ran <strong>preventive maintenance to minimise client downtime</strong>.</li>
+                  <li>Documented technical procedures and service activity, building a knowledge base that sped up future resolutions.</li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="stint" data-reveal data-stint="2">
+              <div class="stint__when"><b>Jul 2024</b>Oct 2024</div>
+              <div>
+                <h3 class="stint__role">Customer Experience Agent</h3>
+                <p class="stint__org">Alorica</p>
+                <ul class="stint__points">
+                  <li>Supported customers across <strong>phone, chat, and email</strong> while maintaining high satisfaction standards.</li>
+                  <li>Resolved technical inquiries using internal systems and knowledge bases; collaborated with QA teams on process compliance and service quality.</li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="stint" data-reveal data-stint="3">
+              <div class="stint__when"><b>Aug 2023</b>Nov 2023</div>
+              <div>
+                <h3 class="stint__role">Intern Web Developer</h3>
+                <p class="stint__org">St. Dominic College of Asia</p>
+                <ul class="stint__points">
+                  <li>Developed and maintained academic web systems using <strong>CodeIgniter 3, PHP, MySQL, HTML, CSS, and JavaScript</strong>.</li>
+                  <li>Implemented front-end and back-end features; debugged, tested, and optimised application performance.</li>
+                </ul>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Toolkit — a matrix, ATS-readable, no pill soup
+         ============================================================ -->
+    <section class="toolkit" id="toolkit" aria-labelledby="toolkit-title">
+      <div class="shell">
+        <header class="toolkit__head">
+          <div data-reveal>
+            <p class="marker">Toolkit</p>
+            <h2 id="toolkit-title" class="mt-head">What I reach for.</h2>
+          </div>
+          <p class="lede" data-reveal data-i="1">
+            Grouped by domain rather than ranked — annotations mark where my depth is
+            genuinely introductory rather than daily.
+          </p>
+        </header>
+
+        <div class="matrix">
+          <div class="matrix__cell" data-reveal>
+            <h3>Cloud &amp; Identity <span>05</span></h3>
+            <ul>
+              <li>Microsoft 365 Administration</li>
+              <li>Exchange Online</li>
+              <li>Outlook Configuration &amp; Troubleshooting</li>
+              <li>Google Workspace Administration</li>
+              <li>Email Migration Support</li>
+            </ul>
+          </div>
+
+          <div class="matrix__cell" data-reveal data-i="1">
+            <h3>Network &amp; Infrastructure <span>06</span></h3>
+            <ul>
+              <li>LAN / WAN Configuration</li>
+              <li>Router &amp; Switch Configuration</li>
+              <li>DNS Management</li>
+              <li>Domain Administration</li>
+              <li>SSL Certificate Management</li>
+              <li>Network Troubleshooting</li>
+            </ul>
+          </div>
+
+          <div class="matrix__cell" data-reveal data-i="2">
+            <h3>Systems &amp; Hardware <span>06</span></h3>
+            <ul>
+              <li>Windows Administration</li>
+              <li>PC &amp; Laptop Troubleshooting</li>
+              <li>Hardware Installation &amp; Maintenance</li>
+              <li>POS System Deployment &amp; Support</li>
+              <li>Printer Configuration &amp; Support</li>
+              <li>CCTV System Support</li>
+            </ul>
+          </div>
+
+          <div class="matrix__cell" data-reveal>
+            <h3>Development <span>08</span></h3>
+            <ul>
+              <li>TypeScript / JavaScript</li>
+              <li>Next.js &amp; React</li>
+              <li>PHP</li>
+              <li>CodeIgniter 3</li>
+              <li>Laravel <em>Basic</em></li>
+              <li>HTML &amp; CSS</li>
+              <li>Git</li>
+              <li>MySQL / PostgreSQL</li>
+            </ul>
+          </div>
+
+          <div class="matrix__cell" data-reveal data-i="1">
+            <h3>Platforms <span>04</span></h3>
+            <ul>
+              <li>Windows</li>
+              <li>Linux <em>Basic</em></li>
+              <li>Docker</li>
+              <li>Prisma ORM</li>
+            </ul>
+          </div>
+
+          <div class="matrix__cell" data-reveal data-i="2">
+            <h3>Working Practice <span>08</span></h3>
+            <ul>
+              <li>Technical Documentation</li>
+              <li>Analytical Thinking</li>
+              <li>Problem Solving</li>
+              <li>Communication</li>
+              <li>Teamwork</li>
+              <li>Adaptability</li>
+              <li>Time Management</li>
+              <li>Customer Service</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Credentials
+         ============================================================ -->
+    <section class="creds" id="credentials" aria-labelledby="creds-title">
+      <div class="shell">
+        <header class="creds__head" data-reveal>
+          <p class="marker">Credentials</p>
+          <h2 class="display" id="creds-title">Certified, and still studying.</h2>
+        </header>
+
+        <div class="grid">
+          <div class="creds__list">
+            <ol>
+              <li class="cert" data-reveal>
+                <span class="cert__i">01</span>
+                <span><span class="cert__name">Computer Hardware Basics</span><span class="cert__by">Cisco Networking Academy</span></span>
+              </li>
+              <li class="cert" data-reveal>
+                <span class="cert__i">02</span>
+                <span><span class="cert__name">Networking Basics</span><span class="cert__by">Cisco Networking Academy</span></span>
+              </li>
+              <li class="cert" data-reveal>
+                <span class="cert__i">03</span>
+                <span><span class="cert__name">Introduction to IoT</span><span class="cert__by">Cisco Networking Academy</span></span>
+              </li>
+              <li class="cert" data-reveal>
+                <span class="cert__i">04</span>
+                <span><span class="cert__name">IT Specialist: HTML and CSS</span><span class="cert__by">Certiport</span></span>
+              </li>
+              <li class="cert" data-reveal>
+                <span class="cert__i">05</span>
+                <span><span class="cert__name">TOEIC Listening &amp; Reading</span><span class="cert__by">ETS — English proficiency</span></span>
+              </li>
+            </ol>
+          </div>
+
+          <aside class="creds__aside">
+            <div class="creds__block" data-reveal>
+              <h3>Education</h3>
+              <p class="creds__degree">BS in Information Technology</p>
+              <p class="creds__school">St. Dominic College of Asia</p>
+              <span class="creds__when">Graduated July 2024</span>
+            </div>
+            <div class="creds__block" data-reveal data-i="1">
+              <h3>Recognition</h3>
+              <ul class="creds__wins">
+                <li><strong>Best in Practicum</strong> — top internship performance in the BSIT programme</li>
+                <li><strong>Dean's Lister</strong> — 1st Semester, A.Y. 2023–2024</li>
+                <li><strong>RISE IT Student Immersion Program</strong> — May 2024</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Contact
+         ============================================================ -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="shell">
+        <div class="grid">
+          <div class="contact__lead">
+            <p class="marker" data-reveal>Contact</p>
+            <h2 class="contact__title display" id="contact-title" data-reveal data-i="1">
+              Got systems to keep<br />online? <em>Let's talk.</em>
+            </h2>
+            <p class="contact__lede" data-reveal data-i="2">
+              Open to IT Officer, Systems Administrator, IT Support Engineer, and
+              full-stack developer roles. I answer within 24 hours.
+            </p>
+
+            <div data-reveal data-i="3">
+              <a class="contact__mail" id="mail-link" href="#contact" rel="nofollow">
+                <span id="mail-text">Reveal email address</span>
+              </a>
+              <br />
+              <button class="contact__copy" id="copy-mail" type="button">
+                <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.4" stroke="currentColor" stroke-width="1.3"/><path d="M10.5 5.5v-1a1.4 1.4 0 0 0-1.4-1.4H3.9A1.4 1.4 0 0 0 2.5 4.5v5.2a1.4 1.4 0 0 0 1.4 1.4h1" stroke="currentColor" stroke-width="1.3"/></svg>
+                Copy address
+              </button>
+            </div>
+
+            <dl class="contact__facts" data-reveal data-i="4">
+              <div><dt>GitHub</dt><dd><a class="link" href="https://github.com/Yazuzaki" rel="noopener noreferrer nofollow" target="_blank">github.com/Yazuzaki</a></dd></div>
+              <div><dt>Location</dt><dd>Philippines — onsite, hybrid or remote</dd></div>
+              <div><dt>Response</dt><dd>Within 24 hours</dd></div>
+              <div><dt>Status</dt><dd>Open to opportunities</dd></div>
+            </dl>
+          </div>
+
+          <div class="contact__form" data-reveal data-i="2">
+            <form id="contact-form" class="field-set" novalidate>
+              <p class="mono form-label">Or send a message</p>
+              <div class="field-row">
+                <label for="cf-name">Name</label>
+                <input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Jane dela Cruz" required />
+              </div>
+              <div class="field-row">
+                <label for="cf-email">Email</label>
+                <input id="cf-email" name="email" type="email" autocomplete="email" placeholder="jane@company.com" required />
+              </div>
+              <div class="field-row">
+                <label for="cf-msg">Message</label>
+                <textarea id="cf-msg" name="message" rows="4" placeholder="Tell me about the role or the problem you need solved…" required></textarea>
+              </div>
+              <div class="hp" aria-hidden="true">
+                <label for="cf-website">Website</label>
+                <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+              </div>
+              <button class="btn" type="submit">
+                Send message
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container site-footer__inner">
-      <p>© <span id="year">2026</span> Patrick Garcia · IT Officer — Microsoft 365 &amp; Infrastructure Support</p>
-      <a class="site-footer__top" href="#top">Back to top ↑</a>
+  <footer class="foot">
+    <div class="shell foot__inner">
+      <p>© <span id="year">2026</span> Patrick Garcia — IT Officer &amp; Full-Stack Developer</p>
+      <a href="#top">Back to top ↑</a>
     </div>
   </footer>
 
-  <!-- ===== Case study overlay (populated by js/projects.js) ===== -->
-  <div class="case-study" id="case-study" role="dialog" aria-modal="true" aria-labelledby="cs-title" hidden>
-    <div class="case-study__backdrop" data-close></div>
-    <div class="case-study__panel" role="document" tabindex="-1">
-      <button class="case-study__close" data-close aria-label="Close case study">
-        <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 3 10 10M13 3 3 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-      </button>
-      <div class="case-study__content" id="cs-content"><!-- injected --></div>
+  <!-- Case study reader — populated by js/projects.js -->
+  <div class="reader" id="reader" role="dialog" aria-modal="true" aria-labelledby="rd-title" hidden>
+    <div class="shell">
+      <div class="reader__bar">
+        <button class="reader__close" type="button" data-close>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 8H3m0 0 4-4M3 8l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Close
+        </button>
+        <span class="reader__seq" id="rd-seq"></span>
+      </div>
+      <div id="rd-content" tabindex="-1"></div>
     </div>
   </div>
 
-  <script src="js/demos.js?v=6" defer></script>
-  <script src="js/projects.js?v=6" defer></script>
-  <script src="js/main.js?v=6" defer></script>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/demos.js?v=7" defer></script>
+  <script src="js/projects.js?v=7" defer></script>
+  <script src="js/main.js?v=7" defer></script>
 </body>
 </html>
