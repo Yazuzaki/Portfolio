@@ -56,7 +56,12 @@
       ],
       demoLede:
         "A scaled-down version of the real compatibility engine, running right here in this page. Pick parts and it checks socket, memory, form factor and clearance, sizes the power supply, and estimates the bottleneck — the same pure-function approach the actual project uses. Try putting an ATX board in the compact case, or an AM5 chip on the AM4 board.",
-      note: "Private repository — happy to walk through the code or the compatibility engine on request.",
+      links: [
+        { label: "Repository", value: "Private" },
+        { label: "Live demo", value: "Interactive, below" },
+        { label: "GitHub", value: "github.com/Yazuzaki", href: "https://github.com/Yazuzaki" },
+      ],
+      note: "Happy to walk through the code or the compatibility engine on request.",
     },
 
     aurora: {
@@ -102,7 +107,12 @@
       ],
       demoLede:
         "The app's quick-add parser, live. Type a task the way you'd say it — priority, due date and tags come out of plain text. Completing a task awards XP exactly like the real thing.",
-      note: "Private repository — happy to walk through the architecture notes or the state model on request.",
+      links: [
+        { label: "Repository", value: "Private" },
+        { label: "Live demo", value: "Interactive, below" },
+        { label: "GitHub", value: "github.com/Yazuzaki", href: "https://github.com/Yazuzaki" },
+      ],
+      note: "Happy to walk through the architecture notes or the state model on request.",
     },
 
     fintrack: {
@@ -148,7 +158,12 @@
       ],
       demoLede:
         "The budget engine from Fintrack, simplified. Add spending and watch category budgets, warning thresholds, savings rate and the financial health score all recompute — the same pure finance maths that's unit-tested in isolation in the real project.",
-      note: "Private repository — happy to walk through the API design or the shared-contract setup on request.",
+      links: [
+        { label: "Repository", value: "Private" },
+        { label: "Live demo", value: "Interactive, below" },
+        { label: "GitHub", value: "github.com/Yazuzaki", href: "https://github.com/Yazuzaki" },
+      ],
+      note: "Happy to walk through the API design or the shared-contract setup on request.",
     },
 
     /* ---------------- IT ownership ---------------- */
@@ -343,11 +358,23 @@
 
     const note = c.note ? `<p class="rd__note">${esc(c.note)}</p>` : "";
 
+    /* Links row. An entry without an href renders as status text rather
+       than a dead link — these repositories are private and there is no
+       public demo to point at except the one embedded in this page. */
+    const links = c.links
+      ? `<div class="rd__links">${c.links.map((l) => l.href
+          ? `<a class="action" href="${esc(l.href)}" target="_blank" rel="noopener noreferrer nofollow">${esc(l.value)}
+               <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 11 11 5m0 0H6m5 0v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+             </a>`
+          : `<span class="rd__link-fact"><b>${esc(l.label)}</b>${esc(l.value)}</span>`).join("")}</div>`
+      : "";
+
     content.innerHTML = `
       <header class="rd__hero">
         <p class="rd__kicker">${kicker}</p>
         <h2 class="rd__title" id="rd-title">${esc(c.title)}</h2>
         <p class="rd__thesis">${esc(c.thesis)}</p>
+        ${links}
       </header>
       ${hero}
       ${spec}

@@ -122,5 +122,6 @@ python3 -m http.server 8000
 - **Colour and type** — the token block at the top of `css/style.css`. Changing `--accent`
   re-skins every interactive state on the page; check contrast if you move `--ink-3`.
 
-Deployment is automatic: any push to `main` (or the active feature branch) triggers the
-GitHub Pages workflow in `.github/workflows/deploy-pages.yml`.
+Deployment is automatic: a push to `main` triggers the GitHub Pages workflow in
+`.github/workflows/deploy-pages.yml` (it can also be run manually via `workflow_dispatch`).
+Feature branches do not deploy.
