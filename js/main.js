@@ -13,56 +13,70 @@
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---------------------------------------------------------
-     Reveal on scroll — one observer, staggered by --i
+     Reveal on scroll.
+
+     Each element declares its own entrance via data-fx, so the
+     page never repeats one fade-up. Headings marked data-split
+     ride in word by word. The observer starts only once the
+     entrance sequence has handed over (motion.js fires pg:ready),
+     otherwise the hero would animate behind the curtain.
      --------------------------------------------------------- */
-  const revealables = document.querySelectorAll("[data-reveal], [data-wipe]");
-  if (reduced || !("IntersectionObserver" in window)) {
-    revealables.forEach((el) => el.classList.add("is-in"));
-  } else {
+  const revealables = document.querySelectorAll("[data-fx], [data-split], [data-stagger]");
+
+  function startReveals() {
+    if (reduced || !("IntersectionObserver" in window)) {
+      revealables.forEach((el) => el.classList.add("is-in"));
+      return;
+    }
+    const pending = new Set(revealables);
+
+    function reveal(el) {
+      el.classList.add("is-in");
+      pending.delete(el);
+      io.unobserve(el);
+    }
+
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-in");
-          io.unobserve(entry.target);
+          if (entry.isIntersecting) reveal(entry.target);
         });
       },
-      { rootMargin: "0px 0px -12% 0px", threshold: 0.05 }
+      { rootMargin: "0px 0px -8% 0px", threshold: 0 }
     );
     revealables.forEach((el) => io.observe(el));
+
+    /* Safety net. IntersectionObserver samples at frame boundaries, so a
+       fast flick, an End keypress, an anchor jump or a restored scroll
+       position can carry an element past the viewport between samples —
+       and a missed reveal leaves content permanently invisible, which is
+       far worse than a missed animation. This sweeps anything the user has
+       already scrolled to and stops once nothing is pending. */
+    let sweeping = false;
+    function catchUp() {
+      if (sweeping || !pending.size) return;
+      sweeping = true;
+      requestAnimationFrame(() => {
+        const limit = innerHeight;
+        pending.forEach((el) => {
+          if (el.getBoundingClientRect().top < limit) reveal(el);
+        });
+        sweeping = false;
+        if (!pending.size) removeEventListener("scroll", catchUp);
+      });
+    }
+    addEventListener("scroll", catchUp, { passive: true });
+    catchUp();
   }
 
-  /* The hero headline animates on load rather than on scroll —
-     it is already in view. */
-  const title = document.querySelector(".opening__title");
-  if (title) {
-    if (reduced) title.classList.add("is-lit");
-    else requestAnimationFrame(() => setTimeout(() => title.classList.add("is-lit"), 90));
-  }
+  if (document.body.classList.contains("is-ready")) startReveals();
+  else document.addEventListener("pg:ready", startReveals, { once: true });
 
   /* ---------------------------------------------------------
-     Masthead: stuck state, scroll progress, section spy
+     Section spy for the masthead links. Scroll progress, the
+     stuck/away masthead states and the tone changes are driven
+     from motion.js so there is exactly one scroll loop.
      --------------------------------------------------------- */
-  const masthead = document.querySelector(".masthead");
-  const progress = document.querySelector(".progress");
-
-  let ticking = false;
-  function onScroll() {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => {
-      const y = window.scrollY;
-      if (masthead) masthead.classList.toggle("is-stuck", y > 40);
-      if (progress) {
-        const max = document.documentElement.scrollHeight - window.innerHeight;
-        progress.style.setProperty("--p", max > 0 ? (y / max).toFixed(4) : 0);
-      }
-      ticking = false;
-    });
-  }
-  addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
-
   const navLinks = document.querySelectorAll(".menu__link");
   const spied = document.querySelectorAll("main section[id]");
   if (navLinks.length && spied.length && "IntersectionObserver" in window) {

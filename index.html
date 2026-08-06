@@ -24,8 +24,8 @@
   <link rel="preload" href="fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/jetbrains-mono-var.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="css/fonts.css?v=7" />
-  <link rel="stylesheet" href="css/style.css?v=7" />
+  <link rel="stylesheet" href="css/fonts.css?v=8" />
+  <link rel="stylesheet" href="css/style.css?v=8" />
 
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Patrick Garcia","jobTitle":"IT Officer","email":"mailto:patrickjeri.garcia@gmail.com","url":"https://yazuzaki.github.io/Portfolio/","address":{"@type":"PostalAddress","addressCountry":"PH"},"alumniOf":{"@type":"CollegeOrUniversity","name":"St. Dominic College of Asia"},"knowsAbout":["Microsoft 365 Administration","Exchange Online","DNS and domain management","Network administration","POS systems","Full-stack web development","Next.js","TypeScript"],"sameAs":["https://github.com/Yazuzaki"]}
@@ -34,6 +34,30 @@
 <body id="top">
   <a class="skip-link" href="#work">Skip to work</a>
   <div class="progress" aria-hidden="true"></div>
+
+  <!-- Ambient field: two slow aurora masses and a grain plate -->
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient__glow ambient__glow--a"></div>
+    <div class="ambient__glow ambient__glow--b"></div>
+    <div class="ambient__grain"></div>
+  </div>
+
+  <!-- Entrance. Shown once per session; removed entirely under reduced motion. -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <p class="loader__mark">Patrick Garcia</p>
+    <p class="loader__num">000</p>
+    <div class="loader__curtain"><i></i><i></i><i></i><i></i></div>
+  </div>
+
+  <!-- Section rail -->
+  <nav class="rail" aria-label="Section progress">
+    <a class="rail__dot" href="#work"><span>Work</span></a>
+    <a class="rail__dot" href="#field"><span>Field notes</span></a>
+    <a class="rail__dot" href="#path"><span>Experience</span></a>
+    <a class="rail__dot" href="#toolkit"><span>Toolkit</span></a>
+    <a class="rail__dot" href="#credentials"><span>Credentials</span></a>
+    <a class="rail__dot" href="#contact"><span>Contact</span></a>
+  </nav>
 
   <!-- ============================================================
        Masthead
@@ -65,10 +89,12 @@
          Opening — statement left, instrumentation right
          ============================================================ -->
     <section class="opening" aria-label="Introduction">
+      <div class="opening__grid" aria-hidden="true"></div>
+      <div class="opening__orbit" aria-hidden="true"><i></i><i></i><i></i></div>
       <div class="shell">
         <div class="grid">
           <div class="opening__body">
-            <p class="opening__eyebrow" data-reveal>
+            <p class="opening__eyebrow" data-fx="rise">
               <span class="status-dot" aria-hidden="true"></span>
               Available — IT Officer, Philippines
             </p>
@@ -80,24 +106,24 @@
               <span class="line"><span data-i="3">runs on them.</span></span>
             </h1>
 
-            <p class="opening__lede" data-reveal data-i="1">
+            <p class="opening__lede" data-fx="blur" data-i="2">
               I run Microsoft 365, networks, and domain infrastructure for 100+ users across
               multiple business locations. Off the clock I build full-stack products —
               three of them are below, with the architecture decisions and the lessons
               that came out of them.
             </p>
 
-            <div class="opening__actions" data-reveal data-i="2">
-              <a class="action action--accent" href="#work">
+            <div class="opening__actions" data-fx="rise" data-i="3">
+              <a class="action action--accent" href="#work" data-magnetic="0.35" data-ripple>
                 Selected work
                 <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
-              <a class="action" href="#contact">Get in touch</a>
+              <a class="action" href="#contact" data-magnetic="0.35" data-ripple>Get in touch</a>
             </div>
           </div>
 
           <!-- Stats given a job: a scope readout, not three orphan numbers -->
-          <aside class="opening__panel" data-reveal data-i="3" aria-label="Current scope">
+          <aside class="opening__panel" data-fx="right" data-i="4" aria-label="Current scope">
             <dl class="panel">
               <div class="panel__row"><dt>Systems</dt><dd>Operational <span class="status-dot" aria-hidden="true"></span></dd></div>
               <div class="panel__row"><dt>Users supported</dt><dd><span class="num" data-count="100">0</span>+</dd></div>
@@ -126,18 +152,18 @@
     <section class="disciplines" id="disciplines" aria-labelledby="disciplines-title">
       <div class="shell">
         <header class="disciplines__head">
-          <div data-reveal>
+          <div data-fx="rotate">
             <p class="marker">What I own</p>
             <h2 id="disciplines-title" class="mt-head">Four disciplines, one operating standard.</h2>
           </div>
-          <p class="lede" data-reveal data-i="1">
+          <p class="lede" data-fx="blur" data-i="1">
             Built across enterprise support environments and multi-location business
             operations — the same rigour applied whether it's a mailbox or a merge.
           </p>
         </header>
 
         <div class="index">
-          <article class="index__row" data-reveal>
+          <article class="index__row" data-fx="left" data-glow>
             <p class="index__i">01</p>
             <h3 class="index__title">Cloud&nbsp;&amp;&nbsp;Identity</h3>
             <div class="index__desc">
@@ -150,7 +176,7 @@
             </span>
           </article>
 
-          <article class="index__row" data-reveal>
+          <article class="index__row" data-fx="left" data-glow>
             <p class="index__i">02</p>
             <h3 class="index__title">Network&nbsp;&amp;&nbsp;Domains</h3>
             <div class="index__desc">
@@ -163,7 +189,7 @@
             </span>
           </article>
 
-          <article class="index__row" data-reveal>
+          <article class="index__row" data-fx="left" data-glow>
             <p class="index__i">03</p>
             <h3 class="index__title">Systems&nbsp;&amp;&nbsp;Hardware</h3>
             <div class="index__desc">
@@ -177,7 +203,7 @@
             </span>
           </article>
 
-          <article class="index__row" data-reveal>
+          <article class="index__row" data-fx="left" data-glow>
             <p class="index__i">04</p>
             <h3 class="index__title">Software&nbsp;Engineering</h3>
             <div class="index__desc">
@@ -197,12 +223,12 @@
     <!-- ============================================================
          Selected work — the centrepiece, alternating compositions
          ============================================================ -->
-    <section class="work" id="work" aria-labelledby="work-title">
+    <section class="work" id="work" data-tone="work" aria-labelledby="work-title">
       <div class="shell">
         <header class="work__head">
-          <p class="marker" data-reveal>Selected work</p>
-          <h2 class="display" id="work-title" data-reveal>Three products, built end to end.</h2>
-          <p data-reveal data-i="1">
+          <p class="marker" data-fx="left">Selected work</p>
+          <h2 class="display" id="work-title" data-split data-fx="none">Three products, built end to end.</h2>
+          <p data-fx="blur" data-i="1">
             Self-directed builds — architecture, data model, auth, interface, deployment.
             Each opens a full case study with the problem, the approach, a working demo,
             and what it actually taught me.
@@ -211,14 +237,15 @@
 
         <!-- 01 CoreTech -->
         <article class="case">
-          <div class="case__media" data-reveal data-wipe>
-            <a href="#case/coretech" data-open="coretech" aria-label="Open the CoreTech case study">
+          <span class="case__ghost" aria-hidden="true">01</span>
+          <div class="case__media" data-fx="iris">
+            <a class="case__link" data-tilt="4" data-parallax="0.05" href="#case/coretech" data-open="coretech" aria-label="Open the CoreTech case study" data-cursor="View case">
               <div class="frame">
-                <img src="img/coretech-hero.webp?v=7" width="1760" height="1100" alt="The CoreTech storefront: a dark product page headlined “Build a PC that just works”, with a featured build card showing estimated FPS, compatibility and future-proof ratings." loading="lazy" decoding="async" />
+                <img src="img/coretech-hero.webp?v=8" width="1760" height="1100" alt="The CoreTech storefront: a dark product page headlined “Build a PC that just works”, with a featured build card showing estimated FPS, compatibility and future-proof ratings." loading="lazy" decoding="async" />
               </div>
             </a>
           </div>
-          <div class="case__body" data-reveal data-i="1">
+          <div class="case__body" data-fx="right" data-i="1">
             <p class="case__meta"><span>01</span><span>2026</span><span>Solo build</span></p>
             <h3 class="case__title">CoreTech</h3>
             <p class="case__thesis">
@@ -242,14 +269,15 @@
 
         <!-- 02 Aurora Flow -->
         <article class="case">
-          <div class="case__media" data-reveal data-wipe>
-            <a href="#case/aurora" data-open="aurora" aria-label="Open the Aurora Flow case study">
+          <span class="case__ghost" aria-hidden="true">02</span>
+          <div class="case__media" data-fx="iris">
+            <a class="case__link" data-tilt="4" data-parallax="0.05" href="#case/aurora" data-open="aurora" aria-label="Open the Aurora Flow case study" data-cursor="View case">
               <div class="frame">
-                <img src="img/aurora-hero.webp?v=7" width="1760" height="1100" alt="The Aurora Flow dashboard: a dark productivity app showing today's focus tasks, progress rings, streaks and an XP level bar." loading="lazy" decoding="async" />
+                <img src="img/aurora-hero.webp?v=8" width="1760" height="1100" alt="The Aurora Flow dashboard: a dark productivity app showing today's focus tasks, progress rings, streaks and an XP level bar." loading="lazy" decoding="async" />
               </div>
             </a>
           </div>
-          <div class="case__body" data-reveal data-i="1">
+          <div class="case__body" data-fx="right" data-i="1">
             <p class="case__meta"><span>02</span><span>2026</span><span>Solo build</span></p>
             <h3 class="case__title">Aurora&nbsp;Flow</h3>
             <p class="case__thesis">
@@ -273,14 +301,15 @@
 
         <!-- 03 Fintrack -->
         <article class="case">
-          <div class="case__media" data-reveal data-wipe>
-            <a href="#case/fintrack" data-open="fintrack" aria-label="Open the Fintrack case study">
+          <span class="case__ghost" aria-hidden="true">03</span>
+          <div class="case__media" data-fx="iris">
+            <a class="case__link" data-tilt="4" data-parallax="0.05" href="#case/fintrack" data-open="fintrack" aria-label="Open the Fintrack case study" data-cursor="View case">
               <div class="frame">
-                <img src="img/fintrack-hero.webp?v=7" width="1760" height="1100" alt="The Fintrack dashboard: a dark finance app showing total balance, income and expenses, an income-versus-expenses bar chart and a financial health score dial." loading="lazy" decoding="async" />
+                <img src="img/fintrack-hero.webp?v=8" width="1760" height="1100" alt="The Fintrack dashboard: a dark finance app showing total balance, income and expenses, an income-versus-expenses bar chart and a financial health score dial." loading="lazy" decoding="async" />
               </div>
             </a>
           </div>
-          <div class="case__body" data-reveal data-i="1">
+          <div class="case__body" data-fx="right" data-i="1">
             <p class="case__meta"><span>03</span><span>2026</span><span>Solo build</span></p>
             <h3 class="case__title">Fintrack</h3>
             <p class="case__thesis">
@@ -304,22 +333,39 @@
       </div>
     </section>
 
+
+    <!-- Technology strip: pauses on hover, hidden from AT (duplicated track) -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span class="marquee__item"><i>01</i>TypeScript</span>
+        <span class="marquee__item"><i>02</i>Next.js</span>
+        <span class="marquee__item"><i>03</i>PostgreSQL</span>
+        <span class="marquee__item"><i>04</i>Prisma</span>
+        <span class="marquee__item"><i>05</i>React Native</span>
+        <span class="marquee__item"><i>06</i>Microsoft 365</span>
+        <span class="marquee__item"><i>07</i>Exchange Online</span>
+        <span class="marquee__item"><i>08</i>DNS &amp; DMARC</span>
+        <span class="marquee__item"><i>09</i>Docker</span>
+        <span class="marquee__item"><i>10</i>PHP</span>
+      </div>
+    </div>
+
     <!-- ============================================================
          Field notes — IT ownership, registered not merchandised
          ============================================================ -->
-    <section class="field" id="field" aria-labelledby="field-title">
+    <section class="field" id="field" data-tone="field" aria-labelledby="field-title">
       <div class="shell">
         <header class="field__head">
-          <p class="marker" data-reveal>Field notes</p>
-          <h2 id="field-title" data-reveal>Where the uptime actually comes from.</h2>
-          <p data-reveal data-i="1">
+          <p class="marker" data-fx="left">Field notes</p>
+          <h2 id="field-title" data-split data-fx="none">Where the uptime actually comes from.</h2>
+          <p data-fx="blur" data-i="1">
             Four areas of real ownership from my current and previous roles. Scope and
             approach — facts, not invented metrics.
           </p>
         </header>
 
-        <div class="register">
-          <button class="register__row" type="button" data-open="m365" data-reveal aria-haspopup="dialog">
+        <div class="register" data-stagger>
+          <button class="register__row" type="button" data-open="m365" data-cursor="Read" data-glow aria-haspopup="dialog">
             <span class="register__i">01</span>
             <span class="register__title">Microsoft 365 at Scale</span>
             <span class="register__org">Esquire Tech Corp<br />Mar 2026 — Present</span>
@@ -329,7 +375,7 @@
             </span>
           </button>
 
-          <button class="register__row" type="button" data-open="domains" data-reveal aria-haspopup="dialog">
+          <button class="register__row" type="button" data-open="domains" data-cursor="Read" data-glow aria-haspopup="dialog">
             <span class="register__i">02</span>
             <span class="register__title">Email Security &amp; Domains</span>
             <span class="register__org">Esquire Tech Corp<br />Mar 2026 — Present</span>
@@ -339,7 +385,7 @@
             </span>
           </button>
 
-          <button class="register__row" type="button" data-open="pos" data-reveal aria-haspopup="dialog">
+          <button class="register__row" type="button" data-open="pos" data-cursor="Read" data-glow aria-haspopup="dialog">
             <span class="register__i">03</span>
             <span class="register__title">POS &amp; Retail IT Support</span>
             <span class="register__org">APSoft · Esquire Tech<br />Dec 2024 — Present</span>
@@ -349,7 +395,7 @@
             </span>
           </button>
 
-          <button class="register__row" type="button" data-open="vendors" data-reveal aria-haspopup="dialog">
+          <button class="register__row" type="button" data-open="vendors" data-cursor="Read" data-glow aria-haspopup="dialog">
             <span class="register__i">04</span>
             <span class="register__title">Vendor &amp; ISP Coordination</span>
             <span class="register__org">Esquire Tech Corp<br />Mar 2026 — Present</span>
@@ -365,11 +411,11 @@
     <!-- ============================================================
          Trajectory — ledger with a sticky rail
          ============================================================ -->
-    <section class="path" id="path" aria-labelledby="path-title">
+    <section class="path" id="path" data-tone="path" aria-labelledby="path-title">
       <div class="shell">
         <div class="grid">
           <div class="path__rail">
-            <div class="path__rail-inner" data-reveal>
+            <div class="path__rail-inner" data-fx="fall">
               <p class="marker">Trajectory</p>
               <h2 id="path-title">From the helpdesk to the whole stack.</h2>
               <ol class="path__years">
@@ -382,7 +428,7 @@
           </div>
 
           <ol class="path__list">
-            <li class="stint" data-reveal data-stint="0">
+            <li class="stint" data-fx="right" data-stint="0">
               <div class="stint__when"><b>Mar 2026</b>Present</div>
               <div>
                 <h3 class="stint__role">IT Officer</h3>
@@ -397,7 +443,7 @@
               </div>
             </li>
 
-            <li class="stint" data-reveal data-stint="1">
+            <li class="stint" data-fx="right" data-stint="1">
               <div class="stint__when"><b>Dec 2024</b>Mar 2026</div>
               <div>
                 <h3 class="stint__role">Technical Support Engineer</h3>
@@ -411,7 +457,7 @@
               </div>
             </li>
 
-            <li class="stint" data-reveal data-stint="2">
+            <li class="stint" data-fx="scale" data-stint="2">
               <div class="stint__when"><b>Jul 2024</b>Oct 2024</div>
               <div>
                 <h3 class="stint__role">Customer Experience Agent</h3>
@@ -423,7 +469,7 @@
               </div>
             </li>
 
-            <li class="stint" data-reveal data-stint="3">
+            <li class="stint" data-fx="right" data-stint="3">
               <div class="stint__when"><b>Aug 2023</b>Nov 2023</div>
               <div>
                 <h3 class="stint__role">Intern Web Developer</h3>
@@ -445,18 +491,18 @@
     <section class="toolkit" id="toolkit" aria-labelledby="toolkit-title">
       <div class="shell">
         <header class="toolkit__head">
-          <div data-reveal>
+          <div data-fx="left">
             <p class="marker">Toolkit</p>
             <h2 id="toolkit-title" class="mt-head">What I reach for.</h2>
           </div>
-          <p class="lede" data-reveal data-i="1">
+          <p class="lede" data-fx="blur" data-i="1">
             Grouped by domain rather than ranked — annotations mark where my depth is
             genuinely introductory rather than daily.
           </p>
         </header>
 
         <div class="matrix">
-          <div class="matrix__cell" data-reveal>
+          <div class="matrix__cell" data-fx="scale" data-glow>
             <h3>Cloud &amp; Identity <span>05</span></h3>
             <ul>
               <li>Microsoft 365 Administration</li>
@@ -467,7 +513,7 @@
             </ul>
           </div>
 
-          <div class="matrix__cell" data-reveal data-i="1">
+          <div class="matrix__cell" data-fx="scale" data-glow data-i="1">
             <h3>Network &amp; Infrastructure <span>06</span></h3>
             <ul>
               <li>LAN / WAN Configuration</li>
@@ -479,7 +525,7 @@
             </ul>
           </div>
 
-          <div class="matrix__cell" data-reveal data-i="2">
+          <div class="matrix__cell" data-fx="scale" data-glow data-i="2">
             <h3>Systems &amp; Hardware <span>06</span></h3>
             <ul>
               <li>Windows Administration</li>
@@ -491,7 +537,7 @@
             </ul>
           </div>
 
-          <div class="matrix__cell" data-reveal>
+          <div class="matrix__cell" data-fx="scale" data-glow>
             <h3>Development <span>08</span></h3>
             <ul>
               <li>TypeScript / JavaScript</li>
@@ -505,7 +551,7 @@
             </ul>
           </div>
 
-          <div class="matrix__cell" data-reveal data-i="1">
+          <div class="matrix__cell" data-fx="scale" data-glow data-i="1">
             <h3>Platforms <span>04</span></h3>
             <ul>
               <li>Windows</li>
@@ -515,7 +561,7 @@
             </ul>
           </div>
 
-          <div class="matrix__cell" data-reveal data-i="2">
+          <div class="matrix__cell" data-fx="scale" data-glow data-i="2">
             <h3>Working Practice <span>08</span></h3>
             <ul>
               <li>Technical Documentation</li>
@@ -537,31 +583,31 @@
          ============================================================ -->
     <section class="creds" id="credentials" aria-labelledby="creds-title">
       <div class="shell">
-        <header class="creds__head" data-reveal>
+        <header class="creds__head" data-fx="rotate">
           <p class="marker">Credentials</p>
           <h2 class="display" id="creds-title">Certified, and still studying.</h2>
         </header>
 
         <div class="grid">
           <div class="creds__list">
-            <ol>
-              <li class="cert" data-reveal>
+            <ol data-stagger>
+              <li class="cert">
                 <span class="cert__i">01</span>
                 <span><span class="cert__name">Computer Hardware Basics</span><span class="cert__by">Cisco Networking Academy</span></span>
               </li>
-              <li class="cert" data-reveal>
+              <li class="cert">
                 <span class="cert__i">02</span>
                 <span><span class="cert__name">Networking Basics</span><span class="cert__by">Cisco Networking Academy</span></span>
               </li>
-              <li class="cert" data-reveal>
+              <li class="cert">
                 <span class="cert__i">03</span>
                 <span><span class="cert__name">Introduction to IoT</span><span class="cert__by">Cisco Networking Academy</span></span>
               </li>
-              <li class="cert" data-reveal>
+              <li class="cert">
                 <span class="cert__i">04</span>
                 <span><span class="cert__name">IT Specialist: HTML and CSS</span><span class="cert__by">Certiport</span></span>
               </li>
-              <li class="cert" data-reveal>
+              <li class="cert">
                 <span class="cert__i">05</span>
                 <span><span class="cert__name">TOEIC Listening &amp; Reading</span><span class="cert__by">ETS — English proficiency</span></span>
               </li>
@@ -569,13 +615,13 @@
           </div>
 
           <aside class="creds__aside">
-            <div class="creds__block" data-reveal>
+            <div class="creds__block" data-fx="rise">
               <h3>Education</h3>
               <p class="creds__degree">BS in Information Technology</p>
               <p class="creds__school">St. Dominic College of Asia</p>
               <span class="creds__when">Graduated July 2024</span>
             </div>
-            <div class="creds__block" data-reveal data-i="1">
+            <div class="creds__block" data-fx="rise" data-i="1">
               <h3>Recognition</h3>
               <ul class="creds__wins">
                 <li><strong>Best in Practicum</strong> — top internship performance in the BSIT programme</li>
@@ -591,31 +637,31 @@
     <!-- ============================================================
          Contact
          ============================================================ -->
-    <section class="contact" id="contact" aria-labelledby="contact-title">
+    <section class="contact" id="contact" data-tone="close" aria-labelledby="contact-title">
       <div class="shell">
         <div class="grid">
           <div class="contact__lead">
-            <p class="marker" data-reveal>Contact</p>
-            <h2 class="contact__title display" id="contact-title" data-reveal data-i="1">
+            <p class="marker" data-fx="left">Contact</p>
+            <h2 class="contact__title display" id="contact-title" data-split data-i="1">
               Got systems to keep<br />online? <em>Let's talk.</em>
             </h2>
-            <p class="contact__lede" data-reveal data-i="2">
+            <p class="contact__lede" data-fx="blur" data-i="2">
               Open to IT Officer, Systems Administrator, IT Support Engineer, and
               full-stack developer roles. I answer within 24 hours.
             </p>
 
-            <div data-reveal data-i="3">
-              <a class="contact__mail" id="mail-link" href="#contact" rel="nofollow">
+            <div data-fx="rise" data-i="3">
+              <a class="contact__mail" id="mail-link" data-cursor="Reveal" href="#contact" rel="nofollow">
                 <span id="mail-text">Reveal email address</span>
               </a>
               <br />
-              <button class="contact__copy" id="copy-mail" type="button">
+              <button class="contact__copy" id="copy-mail" type="button" data-cursor="Copy">
                 <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.4" stroke="currentColor" stroke-width="1.3"/><path d="M10.5 5.5v-1a1.4 1.4 0 0 0-1.4-1.4H3.9A1.4 1.4 0 0 0 2.5 4.5v5.2a1.4 1.4 0 0 0 1.4 1.4h1" stroke="currentColor" stroke-width="1.3"/></svg>
                 Copy address
               </button>
             </div>
 
-            <dl class="contact__facts" data-reveal data-i="4">
+            <dl class="contact__facts" data-fx="rise" data-i="4">
               <div><dt>GitHub</dt><dd><a class="link" href="https://github.com/Yazuzaki" rel="noopener noreferrer nofollow" target="_blank">github.com/Yazuzaki</a></dd></div>
               <div><dt>Location</dt><dd>Philippines — onsite, hybrid or remote</dd></div>
               <div><dt>Response</dt><dd>Within 24 hours</dd></div>
@@ -623,7 +669,7 @@
             </dl>
           </div>
 
-          <div class="contact__form" data-reveal data-i="2">
+          <div class="contact__form" data-fx="left" data-i="2">
             <form id="contact-form" class="field-set" novalidate>
               <p class="mono form-label">Or send a message</p>
               <div class="field-row">
@@ -642,7 +688,7 @@
                 <label for="cf-website">Website</label>
                 <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off" />
               </div>
-              <button class="btn" type="submit">
+              <button class="btn" type="submit" data-magnetic="0.25" data-ripple>
                 Send message
                 <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </button>
@@ -676,8 +722,9 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="js/demos.js?v=7" defer></script>
-  <script src="js/projects.js?v=7" defer></script>
-  <script src="js/main.js?v=7" defer></script>
+  <script src="js/motion.js?v=8" defer></script>
+  <script src="js/demos.js?v=8" defer></script>
+  <script src="js/projects.js?v=8" defer></script>
+  <script src="js/main.js?v=8" defer></script>
 </body>
 </html>
