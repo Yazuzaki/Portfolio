@@ -224,7 +224,7 @@
     let xp = 45;
 
     const form = el("form", "demo__quickadd");
-    const label = el("label", "demo__sr", "Quick add a task");
+    const label = el("label", "sr-only", "Quick add a task");
     label.setAttribute("for", "d-qa");
     const input = el("input", "demo__input");
     input.id = "d-qa";
